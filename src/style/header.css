@@ -1,0 +1,79 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0); /* Slightly transparent white */
+  backdrop-filter: blur(5px);
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+.navbar-logo {
+  font-size: 1.5em; /* 24px */
+  font-weight: bold;
+}
+.navbar-logo > a{
+  color: black;
+  text-decoration: none;
+}
+
+.hamburger {
+  display: none; /* Hide by default */
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li {
+  margin-right: 1.25em; /* 20px */
+}
+
+.navbar-menu.open > li > a{
+  color: black;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Styles for mobile */
+@media (max-width: 48em) { /* 768px */
+  .navbar-menu {
+      display: none; /* Hide the menu by default */
+      flex-direction: column; /* Stack items vertically */
+      width: 100%;
+      position: absolute;
+      background-color: #f0f0f0;
+      top: 60px; /* Adjust as necessary */
+      left: 0;
+  }
+
+  .navbar-menu.open {
+      display: flex; /* Show when open */
+      background-color: transparent;
+      margin-right: 2em;
+      margin-top: 1em;
+      color: black;
+    }
+
+  .navbar-menu.open > li > a{
+    color: black;
+  }
+
+  .hamburger {
+      display: block; /* Show hamburger icon on small screens */
+  }
+}
+
+
