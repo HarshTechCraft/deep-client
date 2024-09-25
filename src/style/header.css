@@ -9,7 +9,6 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
 }
 
 .jkhskjh {
@@ -39,16 +38,12 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  opacity: 0; /* Initially hidden */
-  transform: translateY(-20px); /* Slide effect */
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
-  pointer-events: none; /* Prevent interaction when not visible */
 }
 
 .navbar-menu.open {
-  opacity: 1; /* Show when open */
-  transform: translateY(0); /* Slide down to original position */
-  pointer-events: auto; /* Enable interaction */
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .navbar-menu li {
@@ -60,43 +55,43 @@
   color: #333;
 }
 
-/* Styles for mobile */
 @media (max-width: 48em) {
+  .input-group {
+    position: static !important;
+  }
+
   .navbar-menu {
-    display: flex; /* Keep the menu as a flex container */
-    flex-direction: column; /* Stack items vertically */
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    
     position: absolute;
     padding: 2em;
     text-align: left;
-    font-size: 1.2em;
-    top: 60px; /* Adjust as necessary */
+    font-size: 1.3em;
+    top: 60px;
     left: 0;
-    background-color: black; /* Semi-transparent background */
-    margin-top: 0; /* Reset margin */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
-    opacity: 0; /* Initially hidden */
-    transform: translateY(-20px); /* Slide effect */
-    pointer-events: none; /* Prevent interaction when not visible */
-  }
-
-
-  .navbar-menu > li{
-    margin-top: 0.5em;
+    background-color: black;
+    margin-top: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    z-index: 100000;
   }
 
   .navbar-menu.open {
-    opacity: 1; /* Show when open */
-    transform: translateY(0); /* Slide down to original position */
-    pointer-events: auto; /* Enable interaction */
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    z-index: 20;
   }
 
   .navbar-menu.open > li > a {
-    color: white; /* Change link color when open */
+    color: white;
+    z-index: 10000;
   }
 
   .hamburger {
-    display: block; /* Show hamburger icon on small screens */
+    display: block;
   }
 }
