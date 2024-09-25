@@ -36,13 +36,15 @@
   
   .search-button {
     padding: 0.625em 1.25em;
-    background-color: black;
+    background-color: #FFB933;
     color: white;
+    font-weight: bold;
     border: none;
     border-radius: 0.25em;
     cursor: pointer;
     margin-top: 1.5em;
   }
+  
   
   @media (max-width: 48em) {
     .search-form {
@@ -51,11 +53,19 @@
     }
   
     .input-group input {
-      width: 92%;
+      width: 100%;
     }
   
     .search-button {
       width: 100%;
     }
   }
+
+  .lnxat {
+    position: relative; /* Ensure suggestions list is positioned relative to the div */
+  }
   
+  .suggestions {
+    position: absolute;
+    top: 100%;
+  }

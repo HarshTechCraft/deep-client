@@ -1,0 +1,162 @@
+/* Signup.css */
+
+.signup-container {
+  display: flex;
+  position: fixed; /* Keep it fixed to the viewport */
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  height: 100vh; /* Full height of the viewport */
+  width: 100vw; /* Full width of the viewport */
+  top: 0; /* Align to top */
+  left: 0; /* Align to left */
+  padding: 0 1em; /* Side padding for smaller screens */
+}
+
+.signup-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 25em; /* Limit maximum width */
+  background: white;
+  padding: 2.5em;
+  border-radius: 0.625em;
+  text-align: center;
+  z-index: 100;
+}
+
+.signup-container h2 {
+  font-size: 1.8em;
+  margin-bottom: 0.625em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.signup-container p {
+  color: #FFB933;
+  font-size: 0.9em;
+  margin-bottom: 1.25em;
+  text-align: center;
+}
+
+.signup-input {
+  width: 100%;
+  padding: 0.625em;
+  margin: 0.625em 0;
+  border: 1px solid #FFEBD0;
+  border-radius: 0.3125em;
+  font-size: 1em;
+}
+
+.signup-button {
+  width: 100%;
+  padding: 0.75em;
+  background-color: #FFB933;
+  color: white;
+  border: none;
+  border-radius: 0.3125em;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.signup-footer {
+  font-size: 0.9em;
+  margin-top: 0.9375em;
+  text-align: center;
+}
+
+.signup-footer .login-link {
+  color: #FFB933;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 2em;
+  border-radius: 0.625em;
+  max-width: 90%; /* Adjust for smaller screens */
+  width: 100%; /* Full width */
+}
+
+.poiuytrea{
+  background-color: #FFB933 !important;
+  border-color: #FFB933 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+  .signup-box {
+    padding: 1.5em; /* Adjust padding for smaller screens */
+  }
+
+  .signup-container h2 {
+    font-size: 1.5em; /* Slightly smaller header */
+  }
+
+  .signup-button {
+    padding: 0.625em; /* Adjust button padding */
+    font-size: 0.9em; /* Slightly smaller font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-container {
+    padding: 0; /* Remove padding to avoid horizontal scrolling */
+    justify-content: center; /* Ensure it remains centered vertically */
+    align-items: center; /* Ensure it remains centered horizontally */
+    height: 100vh; /* Full height */
+    width: 100vw; /* Full width */
+  }
+
+  .signup-box {
+    padding: 1em; /* Adjust padding for a smaller box */
+    max-width: 100%; /* Ensure it takes the full width of the screen */
+  }
+
+  .signup-container h2 {
+    font-size: 1.3em; /* Further reduce header size */
+  }
+
+  .signup-input {
+    padding: 0.5em; /* Adjust input padding */
+    font-size: 0.9em; /* Smaller font size */
+  }
+
+  .signup-button {
+    padding: 0.5em; /* Smaller button padding */
+    font-size: 0.9em; /* Smaller button font size */
+  }
+
+  .signup-footer {
+    font-size: 0.8em; /* Smaller footer font size */
+  }
+
+  .modal-content{
+    margin-top: 8em;
+    margin-left: 1em;
+
+  }
+
+  
+}
+
