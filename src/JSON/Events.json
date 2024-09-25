@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "title": "Beautiful BYOB Event Space | Elegant Kitchen",
+    "rating": 4.9,
+    "reviews": 612,
+    "guests": 80,
+    "price": 5000,
+    "image": "image-url-1.jpg",
+    "instantBook": true,
+    "powerHost": true
+  },
+  {
+    "id": 2,
+    "title": "Stunning Waterfront Studio with Sunlight",
+    "rating": 5.0,
+    "reviews": 199,
+    "guests": 80,
+    "price": 3100,
+    "image": "image-url-2.jpg",
+    "instantBook": false,
+    "powerHost": true
+  },
+  {
+    "id": 3,
+    "title": "Brand New BYOB Event Space in Irvine",
+    "rating": 4.9,
+    "reviews": 910,
+    "guests": 40,
+    "price": 3500,
+    "image": "image-url-3.jpg",
+    "instantBook": true,
+    "powerHost": true
+  },
+  {
+    "id": 4,
+    "title": "Modern Loft with Rooftop View",
+    "rating": 4.8,
+    "reviews": 450,
+    "guests": 100,
+    "price": 6000,
+    "image": "image-url-4.jpg",
+    "instantBook": true,
+    "powerHost": false
+  },
+  {
+    "id": 5,
+    "title": "Rustic Barn for Large Gatherings",
+    "rating": 4.7,
+    "reviews": 325,
+    "guests": 150,
+    "price": 4500,
+    "image": "image-url-5.jpg",
+    "instantBook": false,
+    "powerHost": true
+  },
+  {
+    "id": 6,
+    "title": "Spacious Industrial Loft with City Views",
+    "rating": 4.9,
+    "reviews": 270,
+    "guests": 120,
+    "price": 7000,
+    "image": "image-url-6.jpg",
+    "instantBook": true,
+    "powerHost": false
+  },
+  {
+    "id": 7,
+    "title": "Cozy Backyard Event Space with Pool",
+    "rating": 4.6,
+    "reviews": 120,
+    "guests": 50,
+    "price": 2500,
+    "image": "image-url-7.jpg",
+    "instantBook": true,
+    "powerHost": false
+  },
+  {
+    "id": 8,
+    "title": "Luxury Mansion with Indoor-Outdoor Flow",
+    "rating": 5.0,
+    "reviews": 85,
+    "guests": 200,
+    "price": 10000,
+    "image": "image-url-8.jpg",
+    "instantBook": false,
+    "powerHost": true
+  },
+  {
+    "id": 9,
+    "title": "Chic Art Gallery Space for Events",
+    "rating": 4.9,
+    "reviews": 140,
+    "guests": 70,
+    "price": 3200,
+    "image": "image-url-9.jpg",
+    "instantBook": false,
+    "powerHost": false
+  },
+  {
+    "id": 10,
+    "title": "Boutique Hotel Penthouse for Events",
+    "rating": 4.8,
+    "reviews": 210,
+    "guests": 90,
+    "price": 5500,
+    "image": "image-url-10.jpg",
+    "instantBook": true,
+    "powerHost": true
+  },
+  {
+    "id": 11,
+    "title": "Elegant Vineyard Venue for Celebrations",
+    "rating": 4.9,
+    "reviews": 160,
+    "guests": 120,
+    "price": 8000,
+    "image": "image-url-11.jpg",
+    "instantBook": true,
+    "powerHost": true
+  },
+  {
+    "id": 12,
+    "title": "Charming Garden Space for Outdoor Events",
+    "rating": 4.8,
+    "reviews": 320,
+    "guests": 75,
+    "price": 4000,
+    "image": "image-url-12.jpg",
+    "instantBook": false,
+    "powerHost": false
+  },
+  {
+    "id": 13,
+    "title": "Contemporary Rooftop Lounge with Skyline View",
+    "rating": 4.7,
+    "reviews": 200,
+    "guests": 60,
+    "price": 5500,
+    "image": "image-url-13.jpg",
+    "instantBook": true,
+    "powerHost": true
+  },
+  {
+    "id": 14,
+    "title": "Spacious Community Center for Gatherings",
+    "rating": 4.5,
+    "reviews": 180,
+    "guests": 200,
+    "price": 3000,
+    "image": "image-url-14.jpg",
+    "instantBook": false,
+    "powerHost": false
+  },
+  {
+    "id": 15,
+    "title": "Chic Warehouse Space for Creative Events",
+    "rating": 4.8,
+    "reviews": 400,
+    "guests": 100,
+    "price": 6500,
+    "image": "image-url-15.jpg",
+    "instantBook": true,
+    "powerHost": true
+  },
+  {
+    "id": 16,
+    "title": "Elegant Ballroom for Formal Events",
+    "rating": 5.0,
+    "reviews": 50,
+    "guests": 300,
+    "price": 12000,
+    "image": "image-url-16.jpg",
+    "instantBook": false,
+    "powerHost": true
+  },
+  {
+    "id": 17,
+    "title": "Unique Treehouse Venue for Intimate Gatherings",
+    "rating": 4.6,
+    "reviews": 90,
+    "guests": 25,
+    "price": 3500,
+    "image": "image-url-17.jpg",
+    "instantBook": true,
+    "powerHost": false
+  },
+  {
+    "id": 18,
+    "title": "Luxury Spa Retreat for Relaxing Events",
+    "rating": 4.9,
+    "reviews": 70,
+    "guests": 40,
+    "price": 9000,
+    "image": "image-url-18.jpg",
+    "instantBook": false,
+    "powerHost": true
+  },
+  {
+    "id": 19,
+    "title": "Historical Mansion with Classic Charm",
+    "rating": 4.8,
+    "reviews": 300,
+    "guests": 150,
+    "price": 7000,
+    "image": "image-url-19.jpg",
+    "instantBook": true,
+    "powerHost": true
+  },
+  {
+    "id": 20,
+    "title": "Artistic Studio Space for Workshops",
+    "rating": 4.7,
+    "reviews": 130,
+    "guests": 50,
+    "price": 2600,
+    "image": "image-url-20.jpg",
+    "instantBook": false,
+    "powerHost": false
+  }
+]

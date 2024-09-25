@@ -1,0 +1,88 @@
+.events-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    margin-top: 5em;
+  }
+  
+  .event-card {
+    width: 18.75em; /* Default width */
+    border: 0.0625em solid #ccc;
+    border-radius: 0.625em;
+    overflow: hidden;
+    box-shadow: 0 0.25em 0.625em rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.2s; /* Add hover effect */
+  }
+  
+  .event-card:hover {
+    transform: translateY(-0.5em); 
+  }
+  
+  .event-image {
+    width: 100%;
+    height: 12.5em;
+    object-fit: cover;
+  }
+  
+  .event-info {
+    padding: 0.9375em;
+  }
+  
+  .event-title {
+    font-size: 1.2em;
+    margin: 0.625em 0;
+  }
+  
+  .event-rating {
+    font-size: 0.9em;
+    color: #555;
+  }
+  
+  .instant-book {
+    font-size: 0.85em;
+    color: green;
+    margin-top: 0.3125em;
+  }
+  
+  .event-price {
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 0.625em;
+  }
+  
+  .power-host-badge {
+    position: absolute;
+    top: 0.625em;
+    left: 0.625em;
+    background-color: black;
+    color: white;
+    padding: 0.3125em;
+    font-size: 0.8em;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1200px) {
+    .event-card {
+      width: 45%; /* Two cards per row */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .event-card {
+      width: 100%; /* Full width for mobile */
+    }
+  
+    .event-rating,
+    .event-price {
+      font-size: 0.8em; /* Adjust font size for smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .event-title {
+      font-size: 1em; /* Smaller title for small devices */
+    }
+  }
+  

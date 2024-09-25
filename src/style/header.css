@@ -1,30 +1,33 @@
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0); /* Slightly transparent white */
-  backdrop-filter: blur(5px);
-  padding-top: 1em;
-  padding-bottom: 1em;
-  padding-right: 2em;
-  padding-left: 2em;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  background-color: rgba(255, 255, 255, 0) !important;
+  backdrop-filter: blur(5px) !important;
+  padding: 1em 2em;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
-.jkhskjh{
+.jkhskjh {
   padding: 1em !important;
 }
 
 .navbar-logo {
-  font-size: 1.5em; /* 24px */
+  font-size: 1.5em;
   font-weight: bold;
 }
-.navbar-logo > a{
+
+.navbar-logo > a {
   color: black;
   text-decoration: none;
 }
 
 .hamburger {
-  display: none; /* Hide by default */
+  display: none;
   font-size: 1.5em;
   background: none;
   border: none;
@@ -36,14 +39,20 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-20px); /* Slide effect */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  pointer-events: none; /* Prevent interaction when not visible */
+}
+
+.navbar-menu.open {
+  opacity: 1; /* Show when open */
+  transform: translateY(0); /* Slide down to original position */
+  pointer-events: auto; /* Enable interaction */
 }
 
 .navbar-menu li {
-  margin-right: 1.25em; /* 20px */
-}
-
-.navbar-menu.open > li > a{
-  color: black;
+  margin-right: 1.25em;
 }
 
 .navbar-menu a {
@@ -52,33 +61,42 @@
 }
 
 /* Styles for mobile */
-@media (max-width: 48em) { /* 768px */
+@media (max-width: 48em) {
   .navbar-menu {
-      display: none; /* Hide the menu by default */
-      flex-direction: column; /* Stack items vertically */
-      width: 100%;
-      position: absolute;
-      background-color: #f0f0f0;
-      top: 60px; /* Adjust as necessary */
-      left: 0;
+    display: flex; /* Keep the menu as a flex container */
+    flex-direction: column; /* Stack items vertically */
+    width: 100%;
+    
+    position: absolute;
+    padding: 2em;
+    text-align: left;
+    font-size: 1.2em;
+    top: 60px; /* Adjust as necessary */
+    left: 0;
+    background-color: black; /* Semi-transparent background */
+    margin-top: 0; /* Reset margin */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-20px); /* Slide effect */
+    pointer-events: none; /* Prevent interaction when not visible */
+  }
+
+
+  .navbar-menu > li{
+    margin-top: 0.5em;
   }
 
   .navbar-menu.open {
-      display: flex; /* Show when open */
-      background-color: transparent;
-      margin-right: 2em;
-      margin-top: 1em;
-      color: black;
-    }
+    opacity: 1; /* Show when open */
+    transform: translateY(0); /* Slide down to original position */
+    pointer-events: auto; /* Enable interaction */
+  }
 
-  .navbar-menu.open > li > a{
-    color: black;
+  .navbar-menu.open > li > a {
+    color: white; /* Change link color when open */
   }
 
   .hamburger {
-      display: block; /* Show hamburger icon on small screens */
+    display: block; /* Show hamburger icon on small screens */
   }
 }
-
-
-

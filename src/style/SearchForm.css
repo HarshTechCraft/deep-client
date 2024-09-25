@@ -64,6 +64,8 @@
   .lnxat {
     position: relative; /* Ensure suggestions list is positioned relative to the div */
   }
+
+
   
   .suggestions {
     position: absolute;

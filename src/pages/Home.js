@@ -9,6 +9,7 @@ function Home() {
       <ImageSlider/>
       <Header/>
       <SearchVenue/>
+      
     </div>
   )
 }
