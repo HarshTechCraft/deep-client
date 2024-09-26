@@ -2,8 +2,9 @@
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  background-color: rgba(255, 255, 255, 0) !important;
-  backdrop-filter: blur(5px) !important;
+  background-color: black;
+  /* background-color: rgba(255, 255, 255, 0) !important; */
+  /* backdrop-filter: blur(5px) !important; */
   padding: 1em 2em;
   position: fixed !important;
   top: 0;
@@ -22,7 +23,7 @@
 }
 
 .navbar-logo > a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -53,7 +54,7 @@
 
 .navbar-menu a {
   text-decoration: none;
-  color: #333;
+  color: white;
 }
 
 @media (max-width: 48em) {
@@ -94,5 +95,6 @@
 
   .hamburger {
     display: block;
+    color: white;
   }
 }
