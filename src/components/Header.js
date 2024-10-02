@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import axios from 'axios';
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import "../style/header.css";
 import "../style/Signup.css";
 import "../style/Login.css";
+import Admin from "./Admin";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
-  const [Email, setEmail] = useState('');
-  const [Password, setPassword] = useState('');
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const url = process.env.NODE_ENV === "production"
-    ? "https://deep-server-c0bq.onrender.com"
-    : "http://localhost:5000";
+  const url =
+    process.env.NODE_ENV === "production"
+      ? "https://deep-server-c0bq.onrender.com"
+      : "http://localhost:5000";
 
   const signup = async (e) => {
     e.preventDefault();
@@ -23,14 +26,14 @@ function Header() {
       const response = await axios.post(`${url}/signup`, { Email, Password });
 
       if (response.data.signup) {
-        alert('Account created');
-        setEmail('');
-        setPassword('');
+        alert("Account created");
+        setEmail("");
+        setPassword("");
       } else {
-        alert('User details already exist');
+        alert("User details already exist");
       }
     } catch (error) {
-      console.error('Error during signup:', error);
+      console.error("Error during signup:", error);
     }
   };
 
@@ -38,21 +41,27 @@ function Header() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${url}/login`, { Email, Password });
+      if (Email == "admin@g.com" && Password == "admin") {
 
-      if (response.data.Email) {
-        if (response.data.Password) {
-          alert("Login successful");
-          setEmail('');
-          setPassword('');
-        } else {
-          alert("Password is incorrect");
-        }
+        navigate('/admin', Admin)
+
       } else {
-        alert("Email does not exist");
+        const response = await axios.post(`${url}/login`, { Email, Password });
+
+        if (response.data.Email) {
+          if (response.data.Password) {
+            alert("Login successful");
+            setEmail("");
+            setPassword("");
+          } else {
+            alert("Password is incorrect");
+          }
+        } else {
+          alert("Email does not exist");
+        }
       }
     } catch (error) {
-      console.error('Error during login:', error);
+      console.error("Error during login:", error);
     }
   };
 
@@ -92,7 +101,7 @@ function Header() {
     setDropdownOpen(false);
   };
 
-  const dropdownItems = ['Option 1', 'Option 2', 'Option 3'];
+  const dropdownItems = ["Option 1", "Option 2", "Option 3"];
 
   return (
     <div>
@@ -168,7 +177,7 @@ function Header() {
               </button>
             </form>
             <p className="login-footer">
-              Create new account!!{' '}
+              Create new account!!{" "}
               <Link onClick={switchToSignupModal}>Signup</Link>
             </p>
           </div>
@@ -206,7 +215,7 @@ function Header() {
               </button>
             </form>
             <p className="signup-footer">
-              Already have an account?{' '}
+              Already have an account?{" "}
               <Link onClick={switchToLoginModal}>Login</Link>
             </p>
           </div>
