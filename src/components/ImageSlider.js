@@ -1,50 +1,54 @@
-import React, { useState, useEffect } from 'react';
-import Slider from 'react-slick';
-import '../style/imageSlider.css'
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
-
-
+import '../style/imageSlider.css';
 import image1 from '../images/image3.jpg';
 import image2 from '../images/image2.jpg';
 import image3 from '../images/image1.jpg';
 import image4 from '../images/image4.jpg';
 import image5 from '../images/image5.jpg';
 
+
+ 
+import React, { useState, useEffect } from 'react';
+
+const images = [
+  image1,
+  image2,
+  image3,
+  image4,
+  image5
+];
+
 const ImageSlider = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
-  
-    const slideImages = [
-      { url: image1 },
-      { url: image2 },
-      { url: image3 },
-      { url: image4 },
-      { url: image5 }
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [autoSlide, setAutoSlide] = useState(null);
+
+  useEffect(() => {
+    setAutoSlide(setInterval(() => nextSlide(), 5000));
+    return () => clearInterval(autoSlide); 
+  }, [currentIndex]);
+
+  const nextSlide = () => {
+    setCurrentIndex(prevIndex => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+  };
+
+  const goToSlide = index => {
+    setCurrentIndex(index);
+    clearInterval(autoSlide);
+  };
+
+  return (
+    <div className="slider image-slider">
+      <ul className="items">
+        {images.map((img, index) => (
+          <li key={index} className={`item ${index === currentIndex ? 'current' : ''}`}>
+            <img src={img} alt={`Slide ${index}`} />
+          </li>
+        ))}
+      </ul>
       
-    ];
-  
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 2500,
-      beforeChange: (current, next) => setCurrentSlide(next),
-    };
-  
-    return (
-      <div className="image-slider">
-        <Slider {...settings}>
-          {slideImages.map((image, index) => (
-            <div key={index}>
-              <img src={image.url} alt={`Slide ${index + 1}`} />
-            </div>
-          ))}
-        </Slider>
-      </div>
-    );
+    </div>
+  );
 };
+
+
 
 export default ImageSlider;

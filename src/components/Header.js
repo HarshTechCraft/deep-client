@@ -1,14 +1,60 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
-import "../style/header.css";
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import "../style/header.css";
 import "../style/Signup.css";
-import "../style/Signin.css";
+import "../style/Login.css";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
+  const [Email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
+
+  const url = process.env.NODE_ENV === "production"
+    ? "https://x-algo-gpay.onrender.com"
+    : "http://localhost:5000";
+
+  const signup = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`${url}/signup`, { Email, Password });
+
+      if (response.data.signup) {
+        alert('Account created');
+        setEmail('');
+        setPassword('');
+      } else {
+        alert('User details already exist');
+      }
+    } catch (error) {
+      console.error('Error during signup:', error);
+    }
+  };
+
+  const login = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(`${url}/login`, { Email, Password });
+
+      if (response.data.Email) {
+        if (response.data.Password) {
+          alert("Login successful");
+          setEmail('');
+          setPassword('');
+        } else {
+          alert("Password is incorrect");
+        }
+      } else {
+        alert("Email does not exist");
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+    }
+  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -16,11 +62,37 @@ function Header() {
 
   const toggleLoginModal = () => {
     setIsLoginModalOpen(!isLoginModalOpen);
+    setIsSignupModalOpen(false);
   };
 
   const toggleSignupModal = () => {
     setIsSignupModalOpen(!isSignupModalOpen);
+    setIsLoginModalOpen(false);
   };
+
+  const switchToSignupModal = () => {
+    setIsLoginModalOpen(false);
+    setIsSignupModalOpen(true);
+  };
+
+  const switchToLoginModal = () => {
+    setIsSignupModalOpen(false);
+    setIsLoginModalOpen(true);
+  };
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState("Spaces");
+
+  const handleDropdownClick = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
+    setDropdownOpen(false);
+  };
+
+  const dropdownItems = ['Option 1', 'Option 2', 'Option 3'];
 
   return (
     <div>
@@ -32,6 +104,26 @@ function Header() {
           &#9776;
         </button>
         <ul className={`navbar-menu ${isOpen ? "open" : ""}`}>
+          <li>
+            <div className="dropdown-container">
+              <div className="dropdown-header" onClick={handleDropdownClick}>
+                {selectedItem}
+              </div>
+              {dropdownOpen && (
+                <ul className="dropdown-list">
+                  {dropdownItems.map((item, index) => (
+                    <li
+                      key={index}
+                      onClick={() => handleItemClick(item)}
+                      className="dropdown-item"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </li>
           <li>
             <a href="#" onClick={toggleLoginModal}>
               <b>Log In</b>
@@ -45,34 +137,39 @@ function Header() {
         </ul>
       </nav>
 
+      {/* Login Modal */}
       <Modal
         className="ertyp"
         show={isLoginModalOpen}
         onHide={toggleLoginModal}
         aria-labelledby="contained-modal-title-vcenter"
       >
-        <Modal.Body className="signup-box ">
+        <Modal.Body className="login-box">
           <div>
             <h2>Join Sukhsangam</h2>
             <p>Book unique spaces directly from local hosts</p>
-            <form>
+            <form onSubmit={login}>
               <input
                 type="email"
                 placeholder="Email"
-                className="signup-input"
+                className="login-input"
+                value={Email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 type="password"
                 placeholder="Password"
-                className="signup-input"
+                className="login-input"
+                value={Password}
+                onChange={(e) => setPassword(e.target.value)}
               />
-              <button type="submit" className="signup-button">
+              <button type="submit" className="login-button">
                 Log In
               </button>
             </form>
-            <p className="signup-footer">
-              create new account !!
-              <Link to="/signup">Signup</Link>
+            <p className="login-footer">
+              Create new account!!{' '}
+              <Link onClick={switchToSignupModal}>Signup</Link>
             </p>
           </div>
         </Modal.Body>
@@ -80,44 +177,43 @@ function Header() {
           <Button variant="secondary" onClick={toggleLoginModal}>
             Close
           </Button>
-          <Button className="poiuytrea" onClick={toggleLoginModal}>
-            Sign Up
-          </Button>
         </Modal.Footer>
       </Modal>
 
+      {/* Signup Modal */}
       <Modal show={isSignupModalOpen} onHide={toggleSignupModal}>
-        <Modal.Body>
-        <div>
+        <Modal.Body className="login-box">
+          <div>
             <h2>Join Sukhsangam</h2>
             <p>Book unique spaces directly from local hosts</p>
-            <form>
+            <form onSubmit={signup}>
               <input
                 type="email"
                 placeholder="Email"
                 className="signup-input"
+                value={Email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 type="password"
                 placeholder="Password"
                 className="signup-input"
+                value={Password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <button type="submit" className="signup-button">
                 Sign Up
               </button>
             </form>
             <p className="signup-footer">
-              Already have an account?
-              <Link to="/login">Login</Link>
+              Already have an account?{' '}
+              <Link onClick={switchToLoginModal}>Login</Link>
             </p>
           </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={toggleSignupModal}>
             Close
-          </Button>
-          <Button className="poiuytrea" onClick={toggleSignupModal}>
-            Log In
           </Button>
         </Modal.Footer>
       </Modal>

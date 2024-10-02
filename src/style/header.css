@@ -3,9 +3,7 @@
   justify-content: space-between !important;
   align-items: center !important;
   background-color: black;
-  /* background-color: rgba(255, 255, 255, 0) !important; */
-  /* backdrop-filter: blur(5px) !important; */
-  padding: 1em 2em;
+  padding: 1rem 2rem;
   position: fixed !important;
   top: 0;
   left: 0;
@@ -14,11 +12,14 @@
 }
 
 .jkhskjh {
-  padding: 1em !important;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
 }
 
 .navbar-logo {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -29,7 +30,7 @@
 
 .hamburger {
   display: none;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -49,7 +50,7 @@
 }
 
 .navbar-menu li {
-  margin-right: 1.25em;
+  margin-right: 1.25rem;
 }
 
 .navbar-menu a {
@@ -67,16 +68,16 @@
     flex-direction: column;
     width: 100%;
     position: absolute;
-    padding: 2em;
+    padding: 2rem;
     text-align: left;
-    font-size: 1.3em;
-    top: 60px;
+    font-size: 1.3rem;
+    top: 3.75rem; 
     left: 0;
     background-color: black;
     margin-top: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-1.25rem); 
     pointer-events: none;
     z-index: 100000;
   }
@@ -96,5 +97,73 @@
   .hamburger {
     display: block;
     color: white;
+  }
+}
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+  color: white;
+}
+
+.dropdown-header {
+  background-color: #333;
+  color: white;
+  padding: 0.625rem 1rem; 
+  font-size: 1rem !important; 
+  border: none;
+  background-color: black;
+  cursor: pointer;
+  border-radius: 0.25rem; 
+  display: inline-block;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+.dropdown-header:hover {
+  background-color: black;
+}
+
+.dropdown-list {
+  display: none;
+  position: absolute;
+  background-color: black;
+  text-align: start !important;
+  min-width: 10rem;
+  box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.2); 
+  z-index: 1;
+  border-radius: 0.25rem; 
+  margin-top: 0.3125rem; 
+  padding: 1em;
+}
+
+.dropdown-container:hover .dropdown-list {
+  display: block;
+}
+
+.dropdown-item {
+  color: black;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  display: block;
+  font-size: 0.875rem;
+}
+
+.dropdown-item:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .dropdown-header {
+    width: 100%;
+    text-align: left;
+    font-size: 1em !important;
+  }
+
+  .dropdown-list {
+    position: static;
+    min-width: 100%;
   }
 }

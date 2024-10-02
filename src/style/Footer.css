@@ -1,86 +1,79 @@
 footer {
-    background-color: #f5f5f5;
-    padding: 2.5em 1.25em; /* 40px and 20px converted to em */
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-  }
-  
-  footer .footer-section {
-    flex: 1;
-    padding: 0 1.25em; /* 20px converted to em */
-  }
-  
-  footer .footer-section h3 {
-    font-size: 1.125em; /* Roughly 18px */
-    font-weight: bold;
-    margin-bottom: 0.625em; /* 10px converted to em */
-  }
-  
-  footer .footer-section ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  footer .footer-section ul li {
-    margin-bottom: 0.625em; /* 10px converted to em */
-  }
-  
-  footer .footer-section ul li a {
-    text-decoration: none;
-    color: #333;
-  }
-  
-  footer .footer-section ul li a:hover {
-    text-decoration: underline;
-  }
+  background-color: #f5f5f5;
+  padding: 2.5em 1.25em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
 
-  
-  
-  footer .address, footer .contact-info {
-    line-height: 1.5em;
-  }
-  
-  footer .share-button {
-    margin-top: 1.25em; /* 20px converted to em */
-    background-color: #333;
-    color: #fff;
-    padding: 0.625em 1.25em; /* 10px and 20px converted to em */
-    border: none;
-    cursor: pointer;
-  }
+footer .footer-section {
+  flex: 1;
+  padding: 0 1.25em;
+}
 
+footer .footer-section h3 {
+  font-size: 1.125em;
+  font-weight: bold;
+  margin-bottom: 0.625em;
+}
 
+footer .footer-section ul {
+  list-style: none;
+  padding: 0;
+}
 
+footer .footer-section ul li {
+  margin-bottom: 0.625em;
+}
 
+footer .footer-section ul li a {
+  text-decoration: none;
+  color: #333;
+}
 
-  footer .social-links {
-    display: flex;
-    align-items: center; /* Vertically aligns items */
-    gap: 0.9375em; /* 15px in em */
-  }
-  
-  footer .footer-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center-aligns items horizontally */
-    text-align: center;
-  }
-  
-  footer .footer-section h3 {
-    margin-bottom: 1em;
-    font-size: 1.125em; /* Roughly 18px */
-    font-weight: bold;
-  }
-  
-  footer .social-links a {
-    font-size: 1.5em; /* Increase the size of the icons if needed */
-    color: #333;
-  }
-  
-  footer .social-links a:hover {
-    color: #f39800;
-  }
-  
-  
+footer .footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+footer .address,
+footer .contact-info {
+  line-height: 1.5em;
+}
+
+footer .share-button {
+  margin-top: 1.25em;
+  background-color: #333;
+  color: #fff;
+  padding: 0.625em 1.25em;
+  border: none;
+  cursor: pointer;
+}
+
+footer .social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.9375em;
+}
+
+footer .footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+footer .footer-section h3 {
+  margin-bottom: 1em;
+  font-size: 1.125em;
+  font-weight: bold;
+}
+
+footer .social-links a {
+  font-size: 1.5em;
+  color: #333;
+}
+
+footer .social-links a:hover {
+  color: #f39800;
+}

@@ -1,0 +1,35 @@
+.autocomplete-wrapper {
+  position: relative; 
+  width: 100%;
+}
+
+input {
+  width: 100%; 
+  padding: 0.5em;
+  border: 0.0625em solid #ccc;
+  border-radius: 0.25em;
+}
+
+.suggestions-list {
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  width: 100%; 
+  background-color: white;
+  border: 0.0625em solid #ccc;
+  border-radius: 0.25em;
+  z-index: 1000; 
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: start !important;
+}
+
+.suggestions-list li {
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}

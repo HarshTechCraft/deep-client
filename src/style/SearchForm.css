@@ -6,15 +6,18 @@
   }
   
   .search-form {
+    gap: 1em;
     display: flex;
-    gap: 0.625em;
     background-color: white;
-    padding: 0.97em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    padding-left: 1.97em;
+    padding-right: 1.97em;
     border-radius: 0.3125em;
     box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.1);
     align-items: center;
-    margin: 5em;
-  }
+    margin: 7em;
+}
   
   .input-group {
     display: flex;
@@ -42,7 +45,6 @@
     border: none;
     border-radius: 0.25em;
     cursor: pointer;
-    margin-top: 1.5em;
   }
   
   
@@ -57,12 +59,12 @@
     }
   
     .search-button {
-      width: 100%;
+      width: 12.625em;
     }
   }
 
   .lnxat {
-    position: relative; /* Ensure suggestions list is positioned relative to the div */
+    position: relative; 
   }
 
 
@@ -71,3 +73,12 @@
     position: absolute;
     top: 100%;
   }
+
+  .date-picker {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
