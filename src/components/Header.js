@@ -14,7 +14,7 @@ function Header() {
   const [Password, setPassword] = useState('');
 
   const url = process.env.NODE_ENV === "production"
-    ? "https://x-algo-gpay.onrender.com"
+    ? "https://deep-server-c0bq.onrender.com"
     : "http://localhost:5000";
 
   const signup = async (e) => {
