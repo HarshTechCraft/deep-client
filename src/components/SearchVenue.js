@@ -1,22 +1,25 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import "../style/SearchForm.css";
 import AutoSuggestion from "./AutoSuggestion";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css"; 
-import axios from "axios"
+import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
+import { Loader } from "./Loader";
 
 const SearchVenue = () => {
   const [inputValue, setInputValue] = useState("");
-  const [locationValue, setLocationValue] = useState(""); 
+  const [locationValue, setLocationValue] = useState("");
   const [dateValue, setDateValue] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [loader , setLoader] = useState(false);
 
   const navigate = useNavigate();
 
-    const url = process.env.NODE_ENV === "production"
-    ? "https://deep-server-c0bq.onrender.com"
-    : "http://localhost:5000";
+  const url =
+    process.env.NODE_ENV === "production"
+      ? "https://deep-server-c0bq.onrender.com"
+      : "http://localhost:5000";
 
   const predefinedKeywords = [
     "Auction",
@@ -62,7 +65,7 @@ const SearchVenue = () => {
     "Valentine's Day Event",
     "Wedding",
     "Workshop",
-    "Yoga Retreat"
+    "Yoga Retreat",
   ];
 
   const predefinedLocations = [
@@ -95,70 +98,75 @@ const SearchVenue = () => {
     "Botad",
     "Amreli",
     "Deesa",
-    "Jetpur"
+    "Jetpur",
   ];
-  
-  const getResult =  async(e) => {
-    e.preventDefault(); 
-    setSubmitted(true); 
 
-    
+  const getResult = async (e) => {
+    setLoader(true)
+    e.preventDefault();
+    setSubmitted(true);
+
     if (!inputValue.trim() || !locationValue.trim() || !dateValue) {
       return;
     }
 
-    const formattedDate = dateValue.toISOString().split("T")[0]; 
-    console.log(inputValue+" "+locationValue+" "+formattedDate)
+    const formattedDate = dateValue.toISOString().split("T")[0];
+    console.log(inputValue + " " + locationValue + " " + formattedDate);
 
     try {
-      const response = await axios.post(`${url}/venuesearch`, { inputValue , locationValue , formattedDate });
+      const response = await axios.post(`${url}/venuesearch`, {
+        inputValue,
+        locationValue,
+        formattedDate,
+      });
 
-      console.log(response.data)
-      navigate("/events",{ state: { searchData: response.data.results } });
-      
+      console.log(response.data);
+      setLoader(false)
+      navigate("/events", { state: { searchData: response.data.results } });
     } catch (error) {
-      console.error('Error during search venue:', error);
+      console.error("Error during search venue:", error);
     }
-
-
   };
 
   return (
-    <div className="search-container">
-      <form className="search-form" onSubmit={getResult}>
-        <div className="input-group">
-          <AutoSuggestion
-            inputValue={inputValue}
-            setInputValue={setInputValue}
-            predefinedKeywords={predefinedKeywords} 
-            placeHolder="Enter your activity"
-          />
-        </div>
-        <div className="input-group">
-          <AutoSuggestion
-            inputValue={locationValue}
-            setInputValue={setLocationValue}
-            predefinedKeywords={predefinedLocations}
-            placeHolder="Enter your Place"
-          />
-        </div>
-        <div className="input-group">
-          <DatePicker
-            selected={dateValue}
-            onChange={(date) => setDateValue(date)} 
-            dateFormat="yyyy/MM/dd" 
-            placeholderText="Enter your Date" 
-            isClearable
-            className="date-picker"
-          />
-        </div>
-        <div className="input-group">
-          <button type="submit" className="search-button">
-            Search ➔
-          </button>
-        </div>
-      </form>
-    </div>
+    <>
+    {loader?<Loader/>:""}
+      <div className="search-container">
+        <form className="search-form" onSubmit={getResult}>
+          <div className="input-group">
+            <AutoSuggestion
+              inputValue={inputValue}
+              setInputValue={setInputValue}
+              predefinedKeywords={predefinedKeywords}
+              placeHolder="Enter your activity"
+            />
+          </div>
+          <div className="input-group">
+            <AutoSuggestion
+              inputValue={locationValue}
+              setInputValue={setLocationValue}
+              predefinedKeywords={predefinedLocations}
+              placeHolder="Enter your Place"
+            />
+          </div>
+          <div className="input-group">
+            <DatePicker
+              selected={dateValue}
+              onChange={(date) => setDateValue(date)}
+              dateFormat="yyyy/MM/dd"
+              placeholderText="Enter your Date"
+              isClearable
+              className="date-picker"
+            />
+          </div>
+          <div className="input-group">
+            <button type="submit" className="search-button">
+              Search ➔
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 };
 

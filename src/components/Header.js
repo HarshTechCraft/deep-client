@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import "../style/header.css";
 import "../style/Signup.css";
 import "../style/Login.css";
 import Admin from "./Admin";
+import { Loader } from "./Loader";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +16,8 @@ function Header() {
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const [loader, setLoader] = useState(false);
+
   const navigate = useNavigate();
 
   const url =
@@ -20,48 +25,61 @@ function Header() {
       ? "https://deep-server-c0bq.onrender.com"
       : "http://localhost:5000";
 
+  
+
+
   const signup = async (e) => {
+    setLoader(true);
     e.preventDefault();
     try {
       const response = await axios.post(`${url}/signup`, { Email, Password });
 
       if (response.data.signup) {
-        alert("Account created");
+        toast.success("Account created successfully!");
         setEmail("");
         setPassword("");
+        setLoader(false);
       } else {
-        alert("User details already exist");
+        toast.error("User details already exist!");
+        setLoader(false);
       }
     } catch (error) {
+      toast.error("Error during signup!");
       console.error("Error during signup:", error);
+      setLoader(false);
     }
   };
 
   const login = async (e) => {
+    setLoader(true);
     e.preventDefault();
 
     try {
-      if (Email == "admin@g.com" && Password == "admin") {
-
-        navigate('/admin', Admin)
-
+      if (Email === "admin@g.com" && Password === "admin") {
+        setLoader(false);
+        navigate("/admin", Admin);
       } else {
         const response = await axios.post(`${url}/login`, { Email, Password });
 
         if (response.data.Email) {
           if (response.data.Password) {
-            alert("Login successful");
+            toast.success("Login successful!");
             setEmail("");
             setPassword("");
+            setLoader(false);
           } else {
-            alert("Password is incorrect");
+            toast.error("Incorrect password!");
+            setLoader(false);
           }
         } else {
-          alert("Email does not exist");
+          toast.error("Email does not exist!");
+          setLoader(false);
         }
       }
     } catch (error) {
+      toast.error("Error during login!");
       console.error("Error during login:", error);
+      setLoader(false);
     }
   };
 
@@ -105,6 +123,16 @@ function Header() {
 
   return (
     <div>
+      {loader ? <Loader /> : ""}
+      <ToastContainer  position="top-center" // Add this to center the toast
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover/>
       <nav className="navbar jkhskjh">
         <div className="navbar-logo">
           <a href="/">Sukhsangam</a>
