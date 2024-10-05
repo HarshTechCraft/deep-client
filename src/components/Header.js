@@ -124,7 +124,7 @@ function Header() {
   return (
     <div>
       {loader ? <Loader /> : ""}
-      <ToastContainer  position="top-center" // Add this to center the toast
+      <ToastContainer  position="top-center" 
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}

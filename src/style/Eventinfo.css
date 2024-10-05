@@ -1,0 +1,175 @@
+/* Base styles for desktop */
+.event-info-container {
+    padding: 2em;
+    max-width: 1200px;
+    margin: 5em auto;
+  }
+  
+  .event-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1.5em;
+  }
+  
+  .event-header h1 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+  }
+  
+  .event-header a {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  .event-gallery {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 1.5em;
+  }
+  
+  .main-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5em;
+  }
+  
+  .gallery-thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  
+  .gallery-thumbnails .thumbnail {
+    width: 10em;
+    height: 8em;
+    border-radius: 0.5em;
+    overflow: hidden;
+  }
+  
+  .gallery-thumbnails .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .view-all {
+    width: 10em;
+    height: 8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0e0e0;
+    border-radius: 0.5em;
+  }
+  
+  .view-all button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+  
+  .event-actions {
+    display: flex;
+    gap: 1em;
+  }
+  
+  .share-btn,
+  .save-btn {
+    padding: 0.5em 1em;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 0.5em;
+    transition: background-color 0.3s;
+  }
+  
+  .share-btn:hover,
+  .save-btn:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Media Queries for Responsive Design */
+  
+  /* For tablets and smaller screens */
+  @media (max-width: 1024px) {
+    .event-gallery {
+      flex-direction: column;
+    }
+  
+    .main-image img {
+      width: 100%;
+      height: auto;
+    }
+  
+    .gallery-thumbnails {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  
+    .gallery-thumbnails .thumbnail {
+      width: 48%;
+      height: 8em;
+    }
+  
+    .view-all {
+      width: 48%;
+      height: 8em;
+    }
+  
+    .event-header h1 {
+      font-size: 1.5em;
+    }
+  }
+  
+  /* For mobile screens */
+  @media (max-width: 768px) {
+    .event-info-container {
+      padding: 1em;
+    }
+  
+    .event-header {
+      align-items: center;
+      text-align: center;
+    }
+  
+    .event-header h1 {
+      font-size: 1.2em;
+    }
+  
+    .event-header a {
+      font-size: 0.9em;
+    }
+  
+    .gallery-thumbnails {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  
+    .gallery-thumbnails .thumbnail {
+      width: 100%;
+      height: auto;
+    }
+  
+    .view-all {
+      width: 100%;
+      height: auto;
+      padding: 1em;
+    }
+  
+    .event-actions {
+      justify-content: center;
+      gap: 0.5em;
+    }
+  
+    .share-btn,
+    .save-btn {
+      font-size: 0.9em;
+      padding: 0.4em 0.8em;
+    }
+  }
+  

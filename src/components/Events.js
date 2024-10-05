@@ -1,26 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../style/Events.css";
-import events from "../JSON/Events.json";
 import Header from "./Header";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const Events = ( ) => {
+const Events = () => {
+  const location = useLocation();
+  const { searchData , event , locations} = location.state || [];
+  console.log("hello" , searchData.length);
+  const navigate = useNavigate();
 
-
-  const location = useLocation(); 
-  const { searchData } = location.state || {}; 
-  console.log("hello"+searchData)
+  const handleCardClick = (event) => {
+    navigate('/events/event-info',{state:{event : event}})
+  };
 
   return (
     <div className="container">
-      <Header/>  
-      <div className="events-container">
+      <Header />
+      <div className="events-header">
+        <h2>{searchData.length} {event}  spaces near {locations}</h2>
+      </div>
+      <hr></hr>
+      <div className="events-container" >
         {searchData.map((event) => (
-          <div key={event.id} className="event-card">
-           <div className="event-image">
+          <div
+            key={event.id}
+            className="event-card"
+            onClick={() => handleCardClick(event)}
+          >
+            <div className="event-image">
               <img src={event.image} alt={event.activity} />
             </div>
             <div className="event-info">
+              <h6 className="event-hotel">{event.hotel}</h6>
+              <hr/>
               <h3 className="event-title">{event.activity}</h3>
               <div className="event-rating">
                 <span>⭐ {event.rating}</span>

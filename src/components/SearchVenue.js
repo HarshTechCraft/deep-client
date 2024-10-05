@@ -144,7 +144,8 @@ const SearchVenue = () => {
 
       }
       else{
-       navigate("/events", { state: { searchData: response.data.results } });
+        
+       navigate("/events", { state: { searchData: response.data.results , event: inputValue , locations : locationValue} });
 
       }
     } catch (error) {
