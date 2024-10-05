@@ -6,6 +6,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { Loader } from "./Loader";
+import { ToastContainer, toast } from "react-toastify";
+
 
 const SearchVenue = () => {
   const [inputValue, setInputValue] = useState("");
@@ -134,9 +136,17 @@ const SearchVenue = () => {
         formattedDate,
       });
 
-      console.log(response.data);
+      console.log(response.data.results.length);
       setLoader(false);
-      navigate("/events", { state: { searchData: response.data.results } });
+      if(response.data.results.length == 0){
+
+        toast.info("No events found")
+
+      }
+      else{
+       navigate("/events", { state: { searchData: response.data.results } });
+
+      }
     } catch (error) {
       console.error("Error during search venue:", error);
       setLoader(false);
@@ -146,6 +156,15 @@ const SearchVenue = () => {
   return (
     <>
       {loader ? <Loader /> : ""}
+      <ToastContainer  position="top-center" 
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover/>
       <div className="search-container">
         <form className="search-form" onSubmit={getResult}>
           <div className="input-group">
