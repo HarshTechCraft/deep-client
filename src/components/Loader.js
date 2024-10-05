@@ -24,7 +24,7 @@ export const Loader = () => {
         color="#FFB933"
         ariaLabel="triangle-loading"
         wrapperStyle={{}}
-        wrapperClass="okmdcik"
+        wrapperClass=""
       />
     </div>
   );
