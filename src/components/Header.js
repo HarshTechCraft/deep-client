@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -9,6 +9,7 @@ import "../style/Signup.css";
 import "../style/Login.css";
 import Admin from "./Admin";
 import { Loader } from "./Loader";
+import Cookies from 'js-cookie';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,16 +18,21 @@ function Header() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [loader, setLoader] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = Cookies.get("authToken");
+    if (token) {
+      setIsLoggedIn(true); // If the token exists, the user is logged in
+    }
+  }, []);
 
   const url =
     process.env.NODE_ENV === "production"
       ? "https://deep-server-c0bq.onrender.com"
       : "http://localhost:5000";
-
-  
-
 
   const signup = async (e) => {
     setLoader(true);
@@ -53,34 +59,42 @@ function Header() {
   const login = async (e) => {
     setLoader(true);
     e.preventDefault();
-
+  
     try {
-      if (Email === "admin@g.com" && Password === "admin") {
-        setLoader(false);
-        navigate("/admin", Admin);
-      } else {
-        const response = await axios.post(`${url}/login`, { Email, Password });
-
-        if (response.data.Email) {
-          if (response.data.Password) {
-            toast.success("Login successful!");
-            setEmail("");
-            setPassword("");
-            setLoader(false);
-          } else {
-            toast.error("Incorrect password!");
-            setLoader(false);
-          }
+      const response = await axios.post(`${url}/login`, { Email, Password });
+  
+      if (response.data.Email) {
+        if (response.data.Password) {
+          // Store JWT token in a secure, HTTP-only cookie
+          Cookies.set("authToken", response.data.token, { 
+            secure: true, 
+            sameSite: "Strict", 
+            expires: 1 // Expire in 1 day
+          });
+  
+          toast.success("Login successful!");
+          setEmail("");
+          setPassword("");
+          setIsLoggedIn(true);
+          toggleLoginModal();
         } else {
-          toast.error("Email does not exist!");
-          setLoader(false);
+          toast.error("Incorrect password!");
         }
+      } else {
+        toast.error("Email does not exist!");
       }
     } catch (error) {
       toast.error("Error during login!");
       console.error("Error during login:", error);
+    } finally {
       setLoader(false);
     }
+  };
+  
+  const logout = () => {
+    Cookies.remove("authToken"); // Remove token on logout
+    setIsLoggedIn(false);
+    toast.success("Logged out successfully!");
   };
 
   const toggleMenu = () => {
@@ -124,7 +138,8 @@ function Header() {
   return (
     <div>
       {loader ? <Loader /> : ""}
-      <ToastContainer  position="top-center" 
+      <ToastContainer
+        position="top-center"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -132,7 +147,7 @@ function Header() {
         rtl={false}
         pauseOnFocusLoss
         draggable
-        pauseOnHover/>
+        pauseOnHover />
       <nav className="navbar jkhskjh">
         <div className="navbar-logo">
           <a href="/">Sukhsangam</a>
@@ -161,16 +176,26 @@ function Header() {
               )}
             </div>
           </li>
-          <li>
-            <a href="#" onClick={toggleLoginModal}>
-              <b>Log In</b>
-            </a>
-          </li>
-          <li>
-            <a href="#" onClick={toggleSignupModal}>
-              <b>Sign Up</b>
-            </a>
-          </li>
+          {isLoggedIn ? (
+            <li>
+              <a href="#" onClick={logout}>
+                <b>Log Out</b>
+              </a>
+            </li>
+          ) : (
+            <>
+              <li>
+                <a href="#" onClick={toggleLoginModal}>
+                  <b>Log In</b>
+                </a>
+              </li>
+              <li>
+                <a href="#" onClick={toggleSignupModal}>
+                  <b>Sign Up</b>
+                </a>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
 

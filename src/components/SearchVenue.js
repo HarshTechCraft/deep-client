@@ -157,15 +157,7 @@ const SearchVenue = () => {
   return (
     <>
       {loader ? <Loader /> : ""}
-      <ToastContainer  position="top-center" 
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover/>
+      
       <div className="search-container">
         <form className="search-form" onSubmit={getResult}>
           <div className="input-group">

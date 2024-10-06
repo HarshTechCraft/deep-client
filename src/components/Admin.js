@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
-
 function Admin() {
   const [formData, setFormData] = useState({
     activity: '',
@@ -12,7 +11,8 @@ function Admin() {
     image: '',
     rating: '',
     guests: '',
-    reviews: ''
+    reviews: '',
+    aboutSpace: ''  // Add this new field
   });
 
   const url =
@@ -21,11 +21,13 @@ function Admin() {
       : "http://localhost:5000";
 
   const handleChange = (e) => {
+
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
       [name]: value
     }));
+    
   };
 
   const handleImageUpload = (e) => {
@@ -47,7 +49,7 @@ function Admin() {
 
     try {
         const response = await axios.post(`${url}/admin`,  formData );
-        console.log("hello"+response.data)
+        console.log("hello" + response.data)
         alert(response.data.savedVenue.activity)
       } catch (error) {
         console.error("Error during admin insertion:", error);
@@ -98,6 +100,18 @@ function Admin() {
         <label>
           Reviews:
           <input type="number" name="reviews" value={formData.reviews} onChange={handleChange} />
+        </label>
+        <br />
+        <label>
+          About Space: {/* New section for 'About Space' */}
+          <textarea 
+            name="aboutSpace" 
+            value={formData.aboutSpace} 
+            onChange={handleChange} 
+            rows="4" 
+            cols="50"
+            placeholder="Describe the space..."  // Optional placeholder
+          />
         </label>
         <br />
         <label>
