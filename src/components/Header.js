@@ -65,11 +65,10 @@ function Header() {
   
       if (response.data.Email) {
         if (response.data.Password) {
-          // Store JWT token in a secure, HTTP-only cookie
           Cookies.set("authToken", response.data.token, { 
             secure: true, 
             sameSite: "Strict", 
-            expires: 1 // Expire in 1 day
+            expires: 1 
           });
   
           toast.success("Login successful!");
@@ -102,14 +101,16 @@ function Header() {
   };
 
   const toggleLoginModal = () => {
-    setIsLoginModalOpen(!isLoginModalOpen);
-    setIsSignupModalOpen(false);
-  };
+  setIsLoginModalOpen(!isLoginModalOpen);
+  setIsSignupModalOpen(false);
+  setIsOpen(false);  // Close the hamburger menu when login modal opens
+};
 
-  const toggleSignupModal = () => {
-    setIsSignupModalOpen(!isSignupModalOpen);
-    setIsLoginModalOpen(false);
-  };
+const toggleSignupModal = () => {
+  setIsSignupModalOpen(!isSignupModalOpen);
+  setIsLoginModalOpen(false);
+  setIsOpen(false);  // Close the hamburger menu when signup modal opens
+};
 
   const switchToSignupModal = () => {
     setIsLoginModalOpen(false);
