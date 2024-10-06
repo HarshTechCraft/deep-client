@@ -154,7 +154,7 @@ const toggleSignupModal = () => {
         rtl={false}
         pauseOnFocusLoss
         draggable
-        style={{zIndex:10000}}
+        style={{zIndex:9999999}}
         pauseOnHover />
       <nav className="navbar jkhskjh">
         <div className="navbar-logo">
