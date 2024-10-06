@@ -18,7 +18,7 @@ input {
   background-color: white;
   border: 0.0625em solid #ccc;
   border-radius: 0.25em;
-  z-index: 1000; 
+  /* z-index: 1000;  */
   list-style: none;
   padding: 0;
   margin: 0;

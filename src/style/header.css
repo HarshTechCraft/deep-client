@@ -83,19 +83,19 @@
     opacity: 0;
     transform: translateY(-1.25rem); 
     pointer-events: none;
-    z-index: 100000;
+    /* z-index: 100000; */
   }
 
   .navbar-menu.open {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
-    z-index: 20;
+    /* z-index: 20; */
   }
 
   .navbar-menu.open > li > a {
     color: white;
-    z-index: 10000;
+    /* z-index: 10000; */
   }
 
   .hamburger {
@@ -136,7 +136,7 @@
   text-align: start !important;
   min-width: 10rem;
   box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.2); 
-  z-index: 1;
+  /* z-index: 1; */
   border-radius: 0.25rem; 
   margin-top: 0.3125rem; 
   padding: 1em;
