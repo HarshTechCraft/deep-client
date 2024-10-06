@@ -59,7 +59,7 @@ function Header() {
   const login = async (e) => {
     setLoader(true);
     e.preventDefault();
-  
+    console.log("login started")
     try {
       const response = await axios.post(`${url}/login`, { Email, Password });
   
@@ -72,14 +72,20 @@ function Header() {
           });
   
           toast.success("Login successful!");
+          console.log("login response is :",response.data )
+
           setEmail("");
           setPassword("");
           setIsLoggedIn(true);
           toggleLoginModal();
         } else {
+          console.log("login response is :",response.data )
+
           toast.error("Incorrect password!");
         }
       } else {
+        console.log("login response is :",response.data )
+
         toast.error("Email does not exist!");
       }
     } catch (error) {
