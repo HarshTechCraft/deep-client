@@ -1,11 +1,17 @@
 .background-overlay {
-    position: absolute;
-    /* z-index: 1; */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0); /* Initial transparent black */
-    transition: background-color 0.3s ease-in-out;
-    height: 113vh;
-  }
+  position: absolute;
+  /* z-index: 1; */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0); /* Initial transparent black */
+  transition: background-color 0.3s ease-in-out;
+  height: 113vh;
+}
+
+.fixed-section {
+  margin-top: -10.2em;
+  width: 100%;
+  position: absolute;
+}

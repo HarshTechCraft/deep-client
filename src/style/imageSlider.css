@@ -4,17 +4,17 @@
 }
 
 .image-slider {
-  position: fixed;
   z-index: -1;
-  height: 100vh;
+  height: 100vh; /* Keeps the overall height of the slider */
 }
 
 .items {
   position: relative;
   overflow: hidden;
-  width: 100%;
-  padding-bottom: 56.25%;
-  height: 100vh;
+  width: 100%; /* Full width to allow the image to scale */
+  height: 100%; /* Ensures this takes full height */
+  list-style-type: none;
+  padding-left: 0em;
 }
 
 .item {
@@ -32,9 +32,10 @@
 }
 
 .item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: auto; /* Allows the width to decrease */
+  height: 100%; /* Keeps the height fixed */
+  max-width: 100%; /* Prevents the image from exceeding the container's width */
+  object-fit: cover; /* Ensures the image covers the area while maintaining aspect ratio */
 }
 
 .dots {
@@ -61,10 +62,26 @@
   transition: opacity 0.4s ease-in-out;
 }
 
+.items:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  pointer-events: none; /* Allows clicks to pass through */
+}
+
 .dot:nth-child(n + 2) {
   margin-left: 0.3125em;
 }
 
 .dot.current {
   opacity: 1;
+}
+
+.sdcvbk {
+  width: 100%;
+  height: 54em;
 }

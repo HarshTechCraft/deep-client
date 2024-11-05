@@ -6,6 +6,8 @@ import Footer from "../components/Footer";
 import Section1 from "../components/Section1";
 import "../style/Home.css";
 import { Zoom } from "react-toastify";
+import PopularVenueSearches from "../components/PopularVenueSearches";
+import PopularSearches from "../components/PopularSearches";
 
 function Home() {
   const [scrollOpacity, setScrollOpacity] = useState(0);
@@ -28,18 +30,11 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <div className="fixed-section">
-        <div
-          className="background-overlay"
-          style={{ backgroundColor: `rgba(0, 0, 0, ${scrollOpacity})` , zIndex: scrollOpacity > 0.57 ? "99" : "0" }}
-        ></div>
-
-        <ImageSlider />
-
-      </div>
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <ImageSlider />
       <SearchVenue />
-
+      <PopularVenueSearches />
+      <PopularSearches />
       <Header />
 
       <Section1 />

@@ -1,85 +1,92 @@
 .search-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 1.25em 0 30em;
-  }
-  
-  .search-form {
-    position: fixed;;
-    gap: 1em;
-    display: flex;
-    background-color: white;
-    padding-bottom: 1em;
-    padding-top: 1em;
-    padding-left: 1.97em;
-    padding-right: 1.97em;
-    border-radius: 0.3125em;
-    box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.1);
-    align-items: center;
-    margin: 10em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 19em;
 }
-  
-  .input-group {
-    display: flex;
+
+.search-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-header h1 {
+  font-size: 2rem;
+  color: white;
+}
+
+.search-header p {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.search-form {
+  display: flex;
+  background-color: transparent;
+  border-radius: 0.3125em;
+  box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 0.75em;
+  color: #777;
+  margin-bottom: 0.3125em;
+}
+
+.input-group input {
+  padding: 0.725em;
+  border: 0.0625em solid #ccc;
+  border-radius: 0.25em;
+  width: 15.625em;
+}
+
+.search-button {
+  padding: 0.725em 1.45em;
+  background-color: #ffb933;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+@media (max-width: 55.5em) {
+  .search-form {
     flex-direction: column;
+    gap: 0.5em;
   }
-  
-  .input-group label {
-    font-size: 0.75em;
-    color: #777;
-    margin-bottom: 0.3125em;
-  }
-  
+
   .input-group input {
-    padding: 0.625em;
-    border: 0.0625em solid #ccc;
-    border-radius: 0.25em;
-    width: 15.625em;
+    width: 100%;
   }
-  
+
   .search-button {
-    padding: 0.625em 1.25em;
-    background-color: #FFB933;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 0.25em;
-    cursor: pointer;
+    width: 12.625em;
   }
-  
-  
-  @media (max-width: 48em) {
-    .search-form {
-      flex-direction: column;
-      gap: 0.9375em;
-    }
-  
-    .input-group input {
-      width: 100%;
-    }
-  
-    .search-button {
-      width: 12.625em;
-    }
-  }
+}
 
-  .lnxat {
-    position: relative; 
-  }
+.lnxat {
+  position: relative;
+}
 
+.suggestions {
+  position: absolute;
+  top: 100%;
+}
 
-  
-  .suggestions {
-    position: absolute;
-    top: 100%;
-  }
-
-  .date-picker {
-    width: 100%; 
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
+.date-picker {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

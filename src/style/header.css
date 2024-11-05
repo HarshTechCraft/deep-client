@@ -1,17 +1,67 @@
 .navbar {
+  backdrop-filter: blur(10px);
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  background-color: black;
-  padding: 1rem 2rem;
   position: fixed !important;
   top: 0;
   left: 0;
   right: 0;
   z-index: 99999;
+  background-color: transparent; /* start as transparent */
+  transition: background-color 0.3s ease;
+  padding: 0.8em !important;
 }
 
-.modal-content{
+.navbar {
+  background-color: transparent; /* start as transparent */
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  animation: fadeToBlack 1s forwards; /* 1 second animation duration */
+}
+
+@keyframes fadeToBlack {
+  0% {
+    background-color: rgba(0, 0, 0, 0); /* fully transparent */
+  }
+  10% {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  20% {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  30% {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  40% {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  60% {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  70% {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  80% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  90% {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 1); /* fully black */
+  }
+}
+
+.ertyp {
+  padding-right: 0px;
+}
+.modal-content {
   margin-top: 8em !important;
 }
 
@@ -28,7 +78,7 @@
 }
 
 .navbar-logo > a {
-  color: white;
+  color: #ffebd0;
   text-decoration: none;
 }
 
@@ -55,11 +105,13 @@
 
 .navbar-menu li {
   margin-right: 1.25rem;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-menu a {
   text-decoration: none;
-  color: white;
+  color: #ffebd0;
 }
 
 @media (max-width: 48em) {
@@ -75,13 +127,13 @@
     padding: 2rem;
     text-align: left;
     font-size: 1.3rem;
-    top: 3.75rem; 
+    top: 3.75rem;
     left: 0;
     background-color: black;
     margin-top: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
     opacity: 0;
-    transform: translateY(-1.25rem); 
+    transform: translateY(-1.25rem);
     pointer-events: none;
     /* z-index: 100000; */
   }
@@ -107,18 +159,17 @@
 .dropdown-container {
   position: relative;
   display: inline-block;
-  color: white;
+  color: #ffebd0;
 }
 
 .dropdown-header {
-  background-color: #333;
-  color: white;
-  padding: 0.625rem 1rem; 
-  font-size: 1rem !important; 
+  background-color: transparent;
+  color: black;
+  padding: 0.625rem 1rem;
+  font-size: 1rem !important;
   border: none;
-  background-color: black;
   cursor: pointer;
-  border-radius: 0.25rem; 
+  border-radius: 0.25rem;
   display: inline-block;
   font-weight: bold;
   width: 100%;
@@ -135,10 +186,10 @@
   background-color: black;
   text-align: start !important;
   min-width: 10rem;
-  box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.2); 
+  box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.2);
   /* z-index: 1; */
-  border-radius: 0.25rem; 
-  margin-top: 0.3125rem; 
+  border-radius: 0.25rem;
+  margin-top: 0.3125rem;
   padding: 1em;
 }
 

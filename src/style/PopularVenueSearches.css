@@ -1,0 +1,108 @@
+.popular-venue-searches {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  margin-top: 14em;
+}
+
+.popular-venue-searches h2 {
+  padding-left: 0.5em;
+  font-size: 1.5rem;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.venue-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.venue-cards {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+}
+
+.venue-card {
+  min-width: 240px;
+  text-align: left;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 10px;
+}
+
+.venue-image {
+  width: 100%;
+  height: 12em;
+  border-radius: 8px;
+}
+
+.venue-card h3 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-top: 10px;
+}
+
+.venue-locations {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+.venue-locations span {
+  color: #ffb933;
+}
+
+.more-link {
+  color: #ffb933;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Scroll Button Styles */
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ffffff;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding-bottom: 0.3em;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-button:hover {
+  background-color: #ffb933;
+  color: #ffffff;
+}
+
+/* Position left and right buttons */
+.scroll-button.left {
+  left: 10px;
+}
+
+.scroll-button.right {
+  right: 10px;
+}
+
+.venue-cards::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+@media (max-width: 55.5em) {
+  .popular-venue-searches {
+    margin-top: 3.5em;
+  }
+}

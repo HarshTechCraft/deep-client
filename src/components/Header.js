@@ -3,13 +3,13 @@ import { Modal, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import "../style/header.css";
 import "../style/Signup.css";
 import "../style/Login.css";
 import Admin from "./Admin";
 import { Loader } from "./Loader";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,15 +18,27 @@ function Header() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [loader, setLoader] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false); // New state for tracking scroll
 
   const navigate = useNavigate();
 
   useEffect(() => {
     const token = Cookies.get("authToken");
     if (token) {
-      setIsLoggedIn(true); // If the token exists, the user is logged in
+      setIsLoggedIn(true);
     }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const url =
@@ -59,33 +71,26 @@ function Header() {
   const login = async (e) => {
     setLoader(true);
     e.preventDefault();
-    console.log("login started")
     try {
       const response = await axios.post(`${url}/login`, { Email, Password });
-  
+
       if (response.data.Email) {
         if (response.data.Password) {
-          Cookies.set("authToken", response.data.token, { 
-            secure: true, 
-            sameSite: "Strict", 
-            expires: 1 
+          Cookies.set("authToken", response.data.token, {
+            secure: true,
+            sameSite: "Strict",
+            expires: 1,
           });
-  
-          toast.success("Login successful!");
-          console.log("login response is :",response.data )
 
+          toast.success("Login successful!");
           setEmail("");
           setPassword("");
           setIsLoggedIn(true);
           toggleLoginModal();
         } else {
-          console.log("login response is :",response.data )
-
           toast.error("Incorrect password!");
         }
       } else {
-        console.log("login response is :",response.data )
-
         toast.error("Email does not exist!");
       }
     } catch (error) {
@@ -95,9 +100,9 @@ function Header() {
       setLoader(false);
     }
   };
-  
+
   const logout = () => {
-    Cookies.remove("authToken"); // Remove token on logout
+    Cookies.remove("authToken");
     setIsLoggedIn(false);
     toast.success("Logged out successfully!");
   };
@@ -107,16 +112,16 @@ function Header() {
   };
 
   const toggleLoginModal = () => {
-  setIsLoginModalOpen(!isLoginModalOpen);
-  setIsSignupModalOpen(false);
-  setIsOpen(false);  // Close the hamburger menu when login modal opens
-};
+    setIsLoginModalOpen(!isLoginModalOpen);
+    setIsSignupModalOpen(false);
+    setIsOpen(false);
+  };
 
-const toggleSignupModal = () => {
-  setIsSignupModalOpen(!isSignupModalOpen);
-  setIsLoginModalOpen(false);
-  setIsOpen(false);  // Close the hamburger menu when signup modal opens
-};
+  const toggleSignupModal = () => {
+    setIsSignupModalOpen(!isSignupModalOpen);
+    setIsLoginModalOpen(false);
+    setIsOpen(false);
+  };
 
   const switchToSignupModal = () => {
     setIsLoginModalOpen(false);
@@ -154,9 +159,10 @@ const toggleSignupModal = () => {
         rtl={false}
         pauseOnFocusLoss
         draggable
-        style={{zIndex:9999999}}
-        pauseOnHover />
-      <nav className="navbar jkhskjh">
+        style={{ zIndex: 9999999 }}
+        pauseOnHover
+      />
+      <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
         <div className="navbar-logo">
           <a href="/">Sukhsangam</a>
         </div>
