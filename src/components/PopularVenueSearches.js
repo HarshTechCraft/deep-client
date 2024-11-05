@@ -6,7 +6,7 @@ const PopularVenueSearches = () => {
   const scrollRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
 
-  // Scroll functions for left and right arrows
+  // Scroll functions for left and right arrow
   const scrollLeft = () => {
     scrollRef.current.scrollBy({ left: 260, behavior: "smooth" });
   };
