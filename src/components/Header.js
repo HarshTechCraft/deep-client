@@ -170,26 +170,6 @@ function Header() {
           &#9776;
         </button>
         <ul className={`navbar-menu ${isOpen ? "open" : ""}`}>
-          <li>
-            <div className="dropdown-container">
-              <div className="dropdown-header" onClick={handleDropdownClick}>
-                {selectedItem}
-              </div>
-              {dropdownOpen && (
-                <ul className="dropdown-list">
-                  {dropdownItems.map((item, index) => (
-                    <li
-                      key={index}
-                      onClick={() => handleItemClick(item)}
-                      className="dropdown-item"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </li>
           {isLoggedIn ? (
             <li>
               <a href="#" onClick={logout}>
@@ -199,13 +179,17 @@ function Header() {
           ) : (
             <>
               <li>
-                <a href="#" onClick={toggleLoginModal}>
-                  <b>Log In</b>
+                <a href="#">
+                  <b>
+                    <Link to="/signin">Log In</Link>
+                  </b>
                 </a>
               </li>
               <li>
                 <a href="#" onClick={toggleSignupModal}>
-                  <b>Sign Up</b>
+                  <b>
+                    <Link to="/signup">Sign Up</Link>
+                  </b>
                 </a>
               </li>
             </>

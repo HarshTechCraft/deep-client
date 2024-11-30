@@ -78,7 +78,7 @@
 }
 
 .navbar-logo > a {
-  color: #ffebd0;
+  color: #ffb933;
   text-decoration: none;
 }
 
@@ -111,7 +111,7 @@
 
 .navbar-menu a {
   text-decoration: none;
-  color: #ffebd0;
+  color: #ffb933;
 }
 
 @media (max-width: 48em) {
