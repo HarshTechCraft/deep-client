@@ -33,6 +33,20 @@
     text-decoration: underline;
   }
 
+  @media (max-width: 965px) {
+
+    .login-second-div{
+      display: none;
+    }
+  
+    .login-page{
+      border: none !important;
+    }
+  
+    .login-box{
+      border-radius: 1em !important;
+    }
+  }
   /* Outer container */
   .login-page {
     display: flex;

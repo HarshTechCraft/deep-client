@@ -14,6 +14,21 @@
     width: 500px;
   }
   
+  
+  @media (max-width: 965px) {
+
+    .signUp-second-div{
+      display: none;
+    }
+  
+    .signUp-page{
+      border: none !important;
+    }
+  
+    .signUp-box{
+      border-radius: 1em !important;
+    }
+  }
   /* Outer container */
   .signUp-page {
     display: flex;
