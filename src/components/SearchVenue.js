@@ -195,7 +195,7 @@ const SearchVenue = () => {
               className="date-picker"
             />
           </div>
-          <div className="input-group z-1">
+          <div className="input-group z-1 w-0">
             <button type="submit" className="search-button">
               Search ➔
             </button>
