@@ -1,38 +1,20 @@
-/* LoginPage.css */
 .login-page-wrapper {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: url('../images/login-bg.jpg') no-repeat center center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-
-  
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('../images/login-bg.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
   .login-second-div{
     height: 474px;
     width: 500px;
   }
   
-  .redirect-to-signup {
-    text-align: center;
-    display: flex;
-    margin-top: 10px;
-  }
   
-  .signup-link {
-    color: #ffb933;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .signup-link:hover {
-    text-decoration: underline;
-  }
-
   @media (max-width: 965px) {
 
     .login-second-div{
@@ -57,32 +39,23 @@
 
   }
   
-  /* Login box */
+  /* login box */
   .login-box {
     display: flex;
     flex-direction: column;
     background-color: white;
-    border-radius: 0 15px 15px 0;
-    padding: 85px 40px;
+    border-radius: 15px 0 0 15px;
+    padding: 35px 40px;
     width: 445px;
     max-width: 90%;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
   }
-
-
-/* Error message styling */
-.error-message {
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
-}
-
-
-  /* Login header */
+  
+  /* login header */
   .login-header {
     width: 100%;
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
   }
   
   .login-logo {
