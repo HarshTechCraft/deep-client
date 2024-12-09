@@ -13,6 +13,11 @@
     height: 474px;
     width: 500px;
   }
+
+  .error-message{
+    color: red;
+    font-size: 0.7em;
+  }
   
   
   @media (max-width: 965px) {
