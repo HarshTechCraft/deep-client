@@ -181,6 +181,39 @@
     background-color: #9b4d60;
   }
   
+  .edfvhjio{
+    margin-top: 0px;
+  }
+  
+  /* Styling for the "Welcome back to" text */
+.welcome-text {
+  font-size: 1.8rem; /* Adjust font size as needed */
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Hide the <br> tag for mobile */
+.desktop-only {
+  display: none;
+}
+
+/* Show "to" inline for mobile */
+.mobile-only {
+  display: inline;
+}
+
+/* Responsive styling */
+@media screen and (min-width: 768px) {
+  /* For larger screens */
+  .desktop-only {
+    display: inline;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+}
+
   /* Responsive styling */
   @media (max-width: 768px) {
     .login-box {
@@ -188,6 +221,9 @@
       width: 100%;
     }
   
+    .wazxcghj{
+      white-space: nowrap; 
+    }
     .login-header h2 {
       font-size: 1.5rem;
     }

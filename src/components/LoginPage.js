@@ -56,9 +56,15 @@ const LoginPage = () => {
 
         <div className="login-box">
           <div className="login-header">
-            <h2>
-              Welcome <span style={{ color: "#ffb933" }}>back</span> <br />
-              to <br /> <span>Sukhsangam!</span>
+            <h2 className="welcome-text">
+              Welcome <span style={{ color: "#ffb933" }}>back</span>
+              <span className="desktop-only">
+                <br />
+              </span>
+              <span style={{ color: "black" }}> to </span>
+            </h2>
+            <h2 className="brand-text">
+              <span>Sukhsangam!</span>
             </h2>
             <p>Book unique spaces directly from local hosts</p>
           </div>
