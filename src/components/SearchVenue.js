@@ -7,12 +7,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { Loader } from "./Loader";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SearchVenue = () => {
   const [inputValue, setInputValue] = useState("");
   const [locationValue, setLocationValue] = useState("");
   const [dateValue, setDateValue] = useState(null);
-  const [submitted, setSubmitted] = useState(false);
   const [loader, setLoader] = useState(false);
 
   const navigate = useNavigate();
@@ -23,21 +23,13 @@ const SearchVenue = () => {
       : "http://localhost:5000";
 
   const predefinedKeywords = [
-    // "Auction",
-    // "Art Show",
-    // "Audition",
     "Auditorium",
     "Anniversary",
     "Award Ceremony",
     "Baby Shower",
     "Banquet",
-    // "Barbecue",
-    // "Bachelorette Party",
-    // "Beach Party",
-    // "Book Launch",
     "Bridal Shower",
     "Catering Event",
-    // "Charity Gala",
     "Christmas Party",
     "Class Reunion",
     "Cultural Festival",
@@ -46,16 +38,7 @@ const SearchVenue = () => {
     "Family Gathering",
     "Fashion Show",
     "Food Festival",
-    // "Game Night",
-    // "Graduation Ceremony",
-    // "Holiday Celebration",
-    // "Karaoke Night",
-    // "Kid's Party",
-    // "Live Concert",
     "Market Fair",
-    // "Meeting",
-    // "Networking Event",
-    // "Open Mic Night",
     "Picnic",
     "Product Launch",
     "Retirement Party",
@@ -74,32 +57,15 @@ const SearchVenue = () => {
     "Surat",
     "Vadodara",
     "Rajkot",
-    // "Bhavnagar",
-    // "Jamnagar",
     "Gandhinagar",
     "Junagadh",
-    // "Gandhidham",
     "Anand",
-    // "Navsari",
     "Morbi",
-    // "Nadiad",
-    // "Upaleta",
-    // "Surendranagar",
-    // "Mehsana",
     "Porbandar",
-    // "Vapi",
-    // "Bharuch",
-    // "Palanpur",
     "Bhuj",
-    // "Valsad",
     "Gondal",
     "Veraval",
-    // "Godhra",
-    // "Patan",
-    // "Kalol",
-    // "Botad",
     "Amreli",
-    // "Deesa",
     "Jetpur",
   ];
 
@@ -118,10 +84,10 @@ const SearchVenue = () => {
   const getResult = async (e) => {
     setLoader(true);
     e.preventDefault();
-    setSubmitted(true);
 
     if (!inputValue.trim() || !locationValue.trim() || !dateValue) {
       setLoader(false);
+      toast.error("Please fill in all fields before searching!");
       return;
     }
 
@@ -157,7 +123,7 @@ const SearchVenue = () => {
   return (
     <>
       {loader ? <Loader /> : ""}
-
+      <ToastContainer />
       <div className="search-container">
         {/* Header Section */}
         <div className="search-header">
