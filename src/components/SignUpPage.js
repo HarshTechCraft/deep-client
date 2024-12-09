@@ -52,6 +52,7 @@ const SignUpPage = () => {
       const response = await axios.post(`${url}/signup`, {
         Email: email,
         Password: password,
+        Name: name,
       });
 
       if (response.data.signup) {
