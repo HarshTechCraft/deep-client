@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "../style/signUpPage.css";
 import axios from "axios";
-import { toast } from "react-toastify"; // Assuming you use 'react-toastify' for alerts
+import { ToastContainer, toast } from "react-toastify"; // Assuming you use 'react-toastify' for alerts
 import { Link } from "react-router-dom"; // Import Link for navigation
 
 const SignUpPage = () => {
@@ -63,7 +63,10 @@ const SignUpPage = () => {
         setConfirmPassword("");
         setLoader(false);
       } else {
-        toast.error("User details already exist!");
+        toast.error("User details already exist!", {
+          position: "top-center",
+          autoclose: 2000,
+        });
         setLoader(false);
       }
     } catch (error) {
@@ -74,86 +77,91 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="signup-page-wrapper">
-      <div className="signUp-page">
-        <div className="signUp-box">
-          <div className="signUp-header">
-            <h2>
-              Join <span style={{ color: "#ffb933" }}>Sukhsangam!</span>
-            </h2>
-            <p>
-              Create an account to book unique spaces directly from local hosts.
-            </p>
-          </div>
-          <form className="signUp-form" onSubmit={signup}>
-            <label htmlFor="name">Full Name</label>
-            <input
-              type="text"
-              id="name"
-              placeholder="Enter your full name"
-              value={name}
-              className="signUp-form-input"
-              onChange={(e) => setName(e.target.value)}
-            />
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Enter your email"
-              value={email}
-              className="signUp-form-input"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              className="signUp-form-input"
-              placeholder="Create a password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <label htmlFor="confirm-password">Confirm Password</label>
-            <input
-              type="password"
-              id="confirm-password"
-              placeholder="Confirm your password"
-              className="signUp-form-input"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-            {error && <p className="error-message">{error}</p>}{" "}
-            {/* Display error */}
-            <div className="signUp-options">
-              <div>
-                <input
-                  type="checkbox"
-                  id="terms"
-                  checked={termsAccepted}
-                  onChange={() => setTermsAccepted(!termsAccepted)}
-                />
-                <label htmlFor="terms" className="remember">
-                  I agree to the <a href="#">terms and conditions</a>
-                </label>
-              </div>
-            </div>
-            <button type="submit" className="signUp-button" disabled={loader}>
-              {loader ? "Signing Up..." : "Sign Up"}
-            </button>
-          </form>
+    <>
+      <ToastContainer />
 
-          {/* Redirect to Sign In page link */}
-          <div className="redirect-signin">
-            <p>
-              Already have an account?{" "}
-              <Link to="/signin" className="redirect-link">
-                Sign In
-              </Link>
-            </p>
+      <div className="signup-page-wrapper">
+        <div className="signUp-page">
+          <div className="signUp-box">
+            <div className="signUp-header">
+              <h2>
+                Join <span style={{ color: "#ffb933" }}>Sukhsangam!</span>
+              </h2>
+              <p>
+                Create an account to book unique spaces directly from local
+                hosts.
+              </p>
+            </div>
+            <form className="signUp-form" onSubmit={signup}>
+              <label htmlFor="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Enter your full name"
+                value={name}
+                className="signUp-form-input"
+                onChange={(e) => setName(e.target.value)}
+              />
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                value={email}
+                className="signUp-form-input"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                className="signUp-form-input"
+                placeholder="Create a password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <label htmlFor="confirm-password">Confirm Password</label>
+              <input
+                type="password"
+                id="confirm-password"
+                placeholder="Confirm your password"
+                className="signUp-form-input"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+              {error && <p className="error-message">{error}</p>}{" "}
+              {/* Display error */}
+              <div className="signUp-options">
+                <div>
+                  <input
+                    type="checkbox"
+                    id="terms"
+                    checked={termsAccepted}
+                    onChange={() => setTermsAccepted(!termsAccepted)}
+                  />
+                  <label htmlFor="terms" className="remember">
+                    I agree to the <a href="#">terms and conditions</a>
+                  </label>
+                </div>
+              </div>
+              <button type="submit" className="signUp-button" disabled={loader}>
+                {loader ? "Signing Up..." : "Sign Up"}
+              </button>
+            </form>
+
+            {/* Redirect to Sign In page link */}
+            <div className="redirect-signin">
+              <p>
+                Already have an account?{" "}
+                <Link to="/signin" className="redirect-link">
+                  Sign In
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
