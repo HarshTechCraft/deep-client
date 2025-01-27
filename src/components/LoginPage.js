@@ -10,6 +10,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState(""); // State for email
   const [password, setPassword] = useState(""); // State for password
   const [error, setError] = useState(""); // State for error messages
+  const [loader, setLoader] = useState(false);
   const navigate = useNavigate();
 
   const url =
@@ -34,6 +35,7 @@ const LoginPage = () => {
 
     try {
       // Making the API call
+      setLoader(true);
       const response = await axios.post(`${url}/login`, { email, password });
 
       if (response.data.Email && response.data.Password) {
@@ -53,8 +55,11 @@ const LoginPage = () => {
       } else {
         setError("Invalid credentials. Please try again.");
       }
+      setLoader(false);
     } catch (error) {
       setError("An error occurred while signing in.");
+      setLoader(false);
+
       console.error(error);
     }
   };
@@ -109,7 +114,7 @@ const LoginPage = () => {
                 Forgot password?
               </a>
             </div>
-            <button type="submit" className="login-button">
+            <button type="submit" className="login-button" disabled={loader}>
               Sign In
             </button>
           </form>
