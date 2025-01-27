@@ -196,7 +196,7 @@ function Header() {
               <a href="/aboutus">About Us</a>
             </li>
             <li className="auth-responsive">
-              <a href="/login">Sign In</a>
+              <a href="/signin">Sign In</a>
             </li>
             <li className="auth-responsive">
               <a href="/signup">Sign Up</a>
