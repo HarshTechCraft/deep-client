@@ -1,0 +1,40 @@
+.AboutUsSection4{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.AboutUsSection4-first{
+    font-size: 2.5em;
+}
+
+.AboutUsSection4-second{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 35em;
+}
+
+
+.AboutUsSection4-second > button{
+    height: 100%;
+    padding: 1em;
+    border: 1px solid #ffb933;
+    background-color: #ffb933;
+    border-radius: 0 10px 10px 0;
+}
+
+.AboutUsSection4-second > input{
+    padding: 1em;
+    border-radius: 10px 0px 0px 10px;
+}
+
+@media (max-width:480px) {
+    .AboutUsSection4-second{
+        width: 20em;
+    }
+}

@@ -14,6 +14,10 @@ footer .footer-section {
 
 }
 
+.footer-section-wrapper{
+  width: 100% !important;
+}
+
 footer .footer-section h3 {
   font-size: 1.125em;
   font-weight: bold;
@@ -60,7 +64,7 @@ footer .social-links {
 
 footer .footer-section {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   text-align: center;
 }
@@ -79,3 +83,31 @@ footer .social-links a {
 footer .social-links a:hover {
   color: #f39800;
 }
+
+
+/* Footer.css */
+
+/* Add animation classes to elements */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-section {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.social-media-icons {
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.footer-note {
+  animation: fadeIn 2s ease-out forwards;
+}
+

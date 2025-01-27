@@ -6,21 +6,29 @@
   flex-direction: column;
   justify-content: center;
   margin-top: 19em;
+  /* opacity: 0; */
+  /* animation: fadeIn 1s forwards, slideInFromLeft 1s 0.5s forwards; */
 }
 
 .search-header {
   text-align: center;
   margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 1s 0.5s forwards;
 }
 
 .search-header h1 {
   font-size: 2rem;
   color: white;
+  transform: translateY(-20px);
+  animation: fadeIn 1s 0.5s forwards;
 }
 
 .search-header p {
   font-size: 1.2rem;
   color: white;
+  transform: translateY(-20px);
+  animation: fadeIn 1s 0.5s forwards;
 }
 
 .search-form {
@@ -29,26 +37,26 @@
   border-radius: 0.3125em;
   box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.1);
   align-items: center;
-  gap: 0.2em;
-
+  gap: 0.1em;
+  opacity: 0;
+  animation: fadeIn 1s 1s forwards, slideInFromLeft 1s 1s forwards;
 }
 
 .input-group {
   display: flex;
   flex-direction: column;
-}
-
-.input-group label {
-  font-size: 0.75em;
-  color: #777;
-  margin-bottom: 0.3125em;
+  opacity: 0;
+  animation: fadeIn 1s 1.5s forwards, slideInFromLeft 1s 1.5s forwards;
 }
 
 .input-group input {
   padding: 0.725em;
-  border: 0.0625em solid #ccc;
+  border: 0;
   border-radius: 0.25em;
   width: 15.625em;
+  border-radius: 0;
+  transform: scale(0.95);
+  animation: scaleIn 0.5s ease-out forwards;
 }
 
 .search-button {
@@ -59,6 +67,8 @@
   border: none;
   border-radius: 0.25em;
   cursor: pointer;
+  animation: scaleIn 0.5s ease-out forwards;
+
 }
 
 @media (max-width: 55.5em) {
@@ -72,7 +82,7 @@
   }
 
   .search-button {
-    width: 12.625em;
+    width: 100%;
   }
 }
 
@@ -91,4 +101,40 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }

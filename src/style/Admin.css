@@ -1,0 +1,141 @@
+.admin-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: start;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.form-row label {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #555;
+}
+
+.admin-form input,
+.admin-form select,
+.admin-form textarea {
+    margin-top: 5px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.admin-form textarea {
+    resize: none;
+    height: 80px;
+}
+
+.admin-form select {
+    padding: 8px;
+    font-size: 14px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.captcha-and-submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.captcha-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.submit-button:disabled {
+    background-color: #d6d6d6;
+    cursor: not-allowed;
+}
+
+input[type="file"] {
+    border: none;
+    padding: 5px;
+}
+
+select:focus,
+input:focus,
+textarea:focus,
+.captcha-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.form-row input[type="number"] {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-row label {
+        width: 100%;
+    }
+
+    .captcha-and-submit {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .submit-button {
+        width: 100%;
+        margin-left: 0;
+    }
+}

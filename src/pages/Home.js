@@ -8,6 +8,7 @@ import "../style/Home.css";
 import { Zoom } from "react-toastify";
 import PopularVenueSearches from "../components/PopularVenueSearches";
 import PopularSearches from "../components/PopularSearches";
+import GridPhotos from "../components/GridPhotos";
 
 function Home() {
   const [scrollOpacity, setScrollOpacity] = useState(0);
@@ -36,9 +37,8 @@ function Home() {
       <PopularVenueSearches />
       <PopularSearches />
       <Header />
-
+      <GridPhotos />
       <Section1 />
-
       <Footer />
     </div>
   );

@@ -3,12 +3,15 @@ import "../style/LoginPage.css";
 import imgbg from "../images/login-bg.jpg";
 import Cookies from "js-cookie";
 import axios from "axios";
-import { Link } from "react-router-dom"; // Importing Link for navigation
+import { Link, useNavigate } from "react-router-dom"; // Importing Link for navigation
+import { ToastContainer, toast } from "react-toastify";
 
 const LoginPage = () => {
   const [email, setEmail] = useState(""); // State for email
   const [password, setPassword] = useState(""); // State for password
   const [error, setError] = useState(""); // State for error messages
+  const navigate = useNavigate();
+
   const url =
     process.env.NODE_ENV === "production"
       ? "https://deep-server-c0bq.onrender.com"
@@ -39,7 +42,14 @@ const LoginPage = () => {
           sameSite: "Strict",
           expires: 1,
         });
-        alert("Sign in successful!");
+        // alert("Sign in successful!");
+        toast.success("Login Successful", {
+          position: "top-center",
+          autoClose: 2000,
+        });
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       } else {
         setError("Invalid credentials. Please try again.");
       }
@@ -51,9 +61,8 @@ const LoginPage = () => {
 
   return (
     <div className="login-page-wrapper">
+      <ToastContainer />
       <div className="login-page">
-        <div className="login-second-div"></div>
-
         <div className="login-box">
           <div className="login-header">
             <h2 className="welcome-text">

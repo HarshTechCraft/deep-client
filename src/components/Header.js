@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "../style/header.css";
 import "../style/Signup.css";
 import "../style/Login.css";
+import profile from "../images/profile.png";
 import Admin from "./Admin";
 import { Loader } from "./Loader";
 import Cookies from "js-cookie";
@@ -146,7 +147,7 @@ function Header() {
   };
 
   const dropdownItems = ["Option 1", "Option 2", "Option 3"];
-
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div>
       {loader ? <Loader /> : ""}
@@ -163,120 +164,87 @@ function Header() {
         pauseOnHover
       />
       <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
+        {/* Logo */}
         <div className="navbar-logo">
           <a href="/">Sukhsangam</a>
         </div>
-        <button className="hamburger" onClick={toggleMenu}>
-          &#9776;
-        </button>
-        <ul className={`navbar-menu ${isOpen ? "open" : ""}`}>
-          {isLoggedIn ? (
+
+        {/* Hamburger Menu */}
+
+        {/* Center Navigation Options */}
+        <div className={`navbar-center  ${menuOpen ? "show" : ""}`}>
+          <ul className={`navbar-menu gap-menu ${menuOpen ? "show2" : ""}`}>
             <li>
-              <a href="#" onClick={logout}>
-                <b>Log Out</b>
-              </a>
+              <a href="/venues">Venues</a>
             </li>
-          ) : (
-            <>
-              <li>
-                <a href="#">
-                  <b>
-                    <Link to="/signin">Log In</Link>
-                  </b>
-                </a>
-              </li>
-              <li>
-                <a href="#" onClick={toggleSignupModal}>
-                  <b>
-                    <Link to="/signup">Sign Up</Link>
-                  </b>
-                </a>
-              </li>
-            </>
-          )}
-        </ul>
+            <li>
+              <a href="/vendors">Vendors</a>
+            </li>
+            <li>
+              <a href="/photos">Photos</a>
+            </li>
+            <li>
+              <a href="/real-weddings">Real Weddings</a>
+            </li>
+            <li>
+              <a href="/blog">Blog</a>
+            </li>
+            <li>
+              <a href="/shop">Shop</a>
+            </li>
+            <li>
+              <a href="/aboutus">About Us</a>
+            </li>
+            <li className="auth-responsive">
+              <a href="/login">Sign In</a>
+            </li>
+            <li className="auth-responsive">
+              <a href="/signup">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Auth Buttons */}
+
+        <div className="navbar-end">
+          <ul className="navbar-menu">
+            {isLoggedIn ? (
+              <>
+                <li>
+                  <a href="#" onClick={logout} className="profile-icon">
+                    <img
+                      src={profile}
+                      alt="User Profile"
+                      className="profile-image"
+                    />
+                  </a>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/signin" className="auth-btn">
+                    Sign In
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/signup" className="auth-btn">
+                    Sign Up
+                  </Link>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+        <div
+          className={`hamburger ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </nav>
-
-      {/* Login Modal */}
-      <Modal
-        className="ertyp"
-        show={isLoginModalOpen}
-        onHide={toggleLoginModal}
-        aria-labelledby="contained-modal-title-vcenter"
-      >
-        <Modal.Body className="login-box">
-          <div>
-            <h2>Join Sukhsangam</h2>
-            <p>Book unique spaces directly from local hosts</p>
-            <form onSubmit={login}>
-              <input
-                type="email"
-                placeholder="Email"
-                className="login-input"
-                value={Email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                className="login-input"
-                value={Password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <button type="submit" className="login-button">
-                Log In
-              </button>
-            </form>
-            <p className="login-footer">
-              Create new account!!{" "}
-              <Link onClick={switchToSignupModal}>Signup</Link>
-            </p>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={toggleLoginModal}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-
-      {/* Signup Modal */}
-      <Modal show={isSignupModalOpen} onHide={toggleSignupModal}>
-        <Modal.Body className="login-box">
-          <div>
-            <h2>Join Sukhsangam</h2>
-            <p>Book unique spaces directly from local hosts</p>
-            <form onSubmit={signup}>
-              <input
-                type="email"
-                placeholder="Email"
-                className="signup-input"
-                value={Email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                className="signup-input"
-                value={Password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <button type="submit" className="signup-button">
-                Sign Up
-              </button>
-            </form>
-            <p className="signup-footer">
-              Already have an account?{" "}
-              <Link onClick={switchToLoginModal}>Login</Link>
-            </p>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={toggleSignupModal}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
     </div>
   );
 }

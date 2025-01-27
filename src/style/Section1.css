@@ -7,14 +7,29 @@
   background-color: #ffb933;
   padding: 7em;
   z-index: 9999;
-  margin-top: 30em;
+  margin-top: 3em;
+  opacity: 0;
+  transition: opacity 2s ease-out;
+  overflow: hidden; /* Prevent overflow outside the container */
+}
+
+.section1-container.animate {
+  opacity: 1;
+  animation: fadeIn 2s forwards;
 }
 
 .section1-images {
   display: flex;
   position: relative;
   gap: 1em;
+  opacity: 0;
   margin-bottom: 2em;
+  transition: opacity 2s ease-out 1s;
+}
+
+.section1-images.animate {
+  opacity: 1;
+  animation: fadeIn 2s 1s forwards, slideInFromLeft 1.5s 1s forwards;
 }
 
 .section1-image {
@@ -23,26 +38,35 @@
   object-fit: cover;
   border-radius: 0.625em;
   transform: skew(-10deg);
+  opacity: 0;
+  animation: fadeIn 2s 1.5s forwards, slideUp 1s 1.5s forwards;
 }
 
 .center-image {
   transform: scale(1.1) skew(-10deg);
+  animation: scaleUp 1s 2s forwards;
 }
 
 .section1-text {
   color: black;
   max-width: 25em;
   text-align: center;
+  opacity: 0;
+  animation: fadeIn 2s 2.5s forwards, slideUp 1s 3s forwards;
 }
 
 .section1-subtitle {
   font-size: 1.2em;
   margin-bottom: 0.5em;
+  opacity: 0;
+  animation: fadeIn 2s 2.5s forwards, slideUp 1s 3s forwards;
 }
 
 .section1-title {
   font-size: 3em;
   margin-bottom: 1em;
+  opacity: 0;
+  animation: fadeIn 2s 3s forwards, slideUp 1s 3s forwards;
 }
 
 .section1-link {
@@ -51,12 +75,15 @@
   font-size: 1.1em;
   border-bottom: 0.0625em solid white;
   padding-bottom: 0.2em;
+  opacity: 0;
+  animation: fadeIn 2s 3.5s forwards, slideUp 1s 3.5s forwards;
 }
 
 .section1-link:hover {
   border-bottom: 0.0625em solid transparent;
 }
 
+/* Mobile and smaller screen media queries remain unchanged */
 @media (max-width: 48em) {
   .section1-container {
     padding: 4em;
@@ -64,13 +91,13 @@
   }
 
   .section1-images {
-    flex-direction: column;
-    gap: 2em;
+    flex-direction: row;
+    gap: 1em;
   }
 
   .section1-image {
-    width: 100%;
-    height: auto;
+    width: 6em;
+    height: 200px;
     transform: skew(-5deg);
   }
 
@@ -108,5 +135,44 @@
 
   .section1-link {
     font-size: 0.9em;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+
+    transform: scale(1.1);
   }
 }

@@ -152,7 +152,6 @@ const SignUpPage = () => {
             </p>
           </div>
         </div>
-        <div className="signUp-second-div"></div>
       </div>
     </div>
   );

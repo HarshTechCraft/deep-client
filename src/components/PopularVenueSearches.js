@@ -1,6 +1,13 @@
 import React, { useRef, useState, useEffect } from "react";
 import "../style/PopularVenueSearches.css";
-import img from "../images/dummy_image2.jpg";
+import img1 from "../images/PV1.jpeg";
+import img2 from "../images/PV2.jpeg";
+import img3 from "../images/PV3.jpeg";
+import img4 from "../images/PV4.jpeg";
+import img5 from "../images/PV5.jpeg";
+import img6 from "../images/PV6.jpeg";
+import img7 from "../images/PV7.jpeg";
+import img8 from "../images/PV8.jpeg";
 
 const PopularVenueSearches = () => {
   const scrollRef = useRef(null);
@@ -34,77 +41,95 @@ const PopularVenueSearches = () => {
     };
   }, []);
 
+  // IntersectionObserver setup for animating venue cards
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+        }
+      });
+    });
+
+    const cards = document.querySelectorAll(".venue-card");
+    cards.forEach((card) => observer.observe(card));
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const popularVenues = [
     {
       id: 1,
       title: "4 Star & Above Wedding Venues",
-      image: img, // Replace with actual image URL
+      image: img1, // Replace with actual image URL
       locations: ["Mumbai", "Bangalore", "Pune"],
     },
     {
       id: 2,
       title: "Banquet Halls",
-      image: img, // Replace with actual image URL
+      image: img2, // Replace with actual image URL
       locations: ["Mumbai", "Bangalore", "Pune"],
     },
     {
       id: 3,
       title: "Marriage Garden / Lawns",
-      image: img, // Replace with actual image URL
+      image: img3, // Replace with actual image URL
       locations: ["Mumbai", "Bangalore", "Pune"],
     },
     {
       id: 4,
       title: "4 Star & Above Wedding Venues",
-      image: img, // Replace with actual image URL
+      image: img4, // Replace with actual image URL
       locations: ["Mumbai", "Bangalore", "Pune"],
     },
     {
       id: 5,
       title: "Banquet Halls",
-      image: img, // Replace with actual image URL
+      image: img5, // Replace with actual image URL
       locations: ["Mumbai", "Bangalore", "Pune"],
     },
     {
       id: 6,
       title: "Marriage Garden / Lawns",
-      image: img, // Replace with actual image URL
+      image: img6, // Replace with actual image URL
       locations: ["Mumbai", "Bangalore", "Pune"],
     },
     {
       id: 7,
       title: "4 Star & Above Wedding Venues",
-      image: img, // Replace with actual image URL
+      image: img7, // Replace with actual image URL
       locations: ["Mumbai", "Bangalore", "Pune"],
     },
     {
       id: 8,
       title: "Banquet Halls",
-      image: img, // Replace with actual image URL
+      image: img8, // Replace with actual image URL
       locations: ["Mumbai", "Bangalore", "Pune"],
     },
     {
       id: 9,
       title: "Marriage Garden / Lawns",
-      image: img, // Replace with actual image URL
+      image: img1, // Replace with actual image URL
       locations: ["Mumbai", "Bangalore", "Pune"],
     },
     {
       id: 10,
       title: "4 Star & Above Wedding Venues",
-      image: img, // Replace with actual image URL
+      image: img2, // Replace with actual image URL
       locations: ["Mumbai", "Bangalore", "Pune"],
     },
     {
       id: 11,
       title: "Banquet Halls",
-      image: img, // Replace with actual image URL
+      image: img3, // Replace with actual image URL
       locations: ["Mumbai", "Bangalore", "Pune"],
     },
     {
       id: 12,
       title: "Marriage Garden / Lawns",
-      image: img, // Replace with actual image URL
+      image: img4, // Replace with actual image URL
       locations: ["Mumbai", "Bangalore", "Pune"],
     },
     // Add more items as needed
@@ -116,7 +141,7 @@ const PopularVenueSearches = () => {
       <div className="venue-container">
         {/* Conditionally render the left arrow button */}
         {showLeftArrow && (
-          <button className="scroll-button left" onClick={scrollRight}>
+          <button className="scroll-button left z-1" onClick={scrollRight}>
             &#8249;
           </button>
         )}

@@ -1,0 +1,75 @@
+.grid-container {
+    max-width: 800px; /* Limit the overall width of the grid */
+    max-height: 600px; /* Limit the overall height of the grid */
+    margin: 0 auto; /* Center the grid horizontally on the page */
+  }
+  
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(6, auto); /* Adjust columns based on content size */
+    grid-auto-rows: auto; /* Adjust rows based on content size */
+    gap: 10px; /* Space between grid items */
+    padding: 20px;
+  }
+  
+  .image {
+    display: flex; /* Enables Flexbox */
+    justify-content: center; /* Horizontally centers the image */
+    background-color: #f0f0f0; /* Optional: light background color for empty space */
+    border-radius: 8px;
+    overflow: hidden; /* Ensures images don't spill out of their boxes */
+    opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity 0.5s ease, transform 1s ease-in-out;
+  }
+
+  .image.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .image img {
+    max-width: 100%; /* Ensures the image scales properly */
+    max-height: 100%; /* Ensures the image fits within the grid box */
+    object-fit: cover; /* Maintains the aspect ratio of the image */
+    border-radius: 8px;
+  }
+  
+  /* Custom sizes for larger images */
+  .image-1 {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .image-2{
+    grid-row: span 1;
+    transition-delay: 0.2s;
+  }
+  .image-3{
+    grid-column: span 1;
+    height: 100%;
+    gap: 0.6em;
+    flex-direction: column;
+    grid-row: span 1;
+    transition-delay: 0.4s;
+  }
+  
+  .image-4 {
+    grid-column: span 2;
+    grid-row: span 1;
+    transition-delay: 0.6s;
+  }
+  .image-5{
+    grid-column: span 3;
+    grid-row: span 1;
+    transition-delay: 0.7s;
+  }
+  .image-{
+    grid-column: span 1;
+  }
+  
+  .image-8 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  

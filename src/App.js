@@ -7,6 +7,7 @@ import Admin from "./components/Admin";
 import EventInfo from "./components/EventInfo";
 import LoginPage from "./components/LoginPage";
 import SignUpPage from "./components/SignUpPage";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/signin" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/aboutus" element={<AboutUs />} />
       </Routes>
     </div>
   );

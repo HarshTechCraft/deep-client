@@ -85,20 +85,20 @@ const SearchVenue = () => {
     setLoader(true);
     e.preventDefault();
 
-    if (!inputValue.trim() || !locationValue.trim() || !dateValue) {
+    if (!inputValue.trim() || !locationValue.trim()) {
       setLoader(false);
       toast.error("Please fill in all fields before searching!");
       return;
     }
 
-    const formattedDate = dateValue.toISOString().split("T")[0];
-    console.log(inputValue + " " + locationValue + " " + formattedDate);
+    // const formattedDate = dateValue.toISOString().split("T")[0];
+    console.log(inputValue + " " + locationValue);
 
     try {
       const response = await axios.post(`${url}/venuesearch`, {
         inputValue,
         locationValue,
-        formattedDate,
+        // formattedDate,
       });
 
       console.log(response.data.results.length);
@@ -120,6 +120,38 @@ const SearchVenue = () => {
     }
   };
 
+  // IntersectionObserver to trigger the animations when in view
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, observerOptions);
+
+    const inputElements = document.querySelectorAll(".input-group");
+    inputElements.forEach((input) => {
+      observer.observe(input);
+    });
+
+    const buttonElement = document.querySelector(".search-button");
+    observer.observe(buttonElement);
+
+    return () => {
+      inputElements.forEach((input) => {
+        observer.unobserve(input);
+      });
+      observer.unobserve(buttonElement);
+    };
+  }, []);
+
   return (
     <>
       {loader ? <Loader /> : ""}
@@ -135,30 +167,20 @@ const SearchVenue = () => {
 
         {/* Search Form */}
         <form className="search-form" onSubmit={getResult}>
-          <div className="input-group">
+          <div className="input-group left-side">
             <AutoSuggestion
               inputValue={inputValue}
               setInputValue={setInputValue}
               predefinedKeywords={predefinedKeywords}
-              placeHolder="Enter your activity"
+              placeHolder="Enter activity"
             />
           </div>
-          <div className="input-group">
+          <div className="input-group right-side">
             <AutoSuggestion
               inputValue={locationValue}
               setInputValue={setLocationValue}
               predefinedKeywords={predefinedLocations}
-              placeHolder="Enter your Place"
-            />
-          </div>
-          <div className="input-group">
-            <DatePicker
-              selected={dateValue}
-              onChange={(date) => setDateValue(date)}
-              dateFormat="yyyy/MM/dd"
-              placeholderText="Enter your Date"
-              isClearable
-              className="date-picker"
+              placeHolder="Enter Place"
             />
           </div>
           <div className="input-group z-1 w-0">

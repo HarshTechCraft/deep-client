@@ -1,0 +1,361 @@
+.AboutUs {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-bottom: 5em;
+    overflow-x: hidden
+  }
+  
+  .Aboutus-Section1 {
+    width: 100%;
+    height: 500px;
+    margin-top: 3.8em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .AU-Section1-right {
+    height: 100%;
+    width: 50%;
+  }
+  
+  .AU-Section1-right img {
+    object-fit: cover;
+    width: 100%; /* Ensure the image is responsive */
+  }
+  
+  .aboutus-text {
+    font-size: 4em;
+    text-align: start;
+  }
+  
+  .aboutus-text-back {
+    text-align: start;
+  }
+  
+  .AU-Section1-left {
+    color: black;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+    background-color: #ffb933;
+  }
+  
+  .AU-section2-left {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .AU-section2-right {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  @media (max-width : 950px) {
+    .AU-section2-left {
+      display: flex;
+      flex-direction: column;
+    }
+    .AU-section2-right {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .AU-section2-img3 {
+      margin-top: 2em;
+    }
+  }
+
+  
+  
+  /* Media queries for responsiveness */
+  
+  /* For tablets and smaller screens (768px and below) */
+  @media (max-width: 768px) {
+    .Aboutus-Section1 {
+      flex-direction: column;
+      height: auto; /* Allow height to adjust dynamically */
+    }
+  
+    
+
+    .AU-Section1-left,
+    .AU-Section1-right {
+      width: 100%;
+      height: auto; /* Adjust to content size */
+    }
+  
+    .aboutus-text {
+      font-size: 2.5em; /* Reduce font size */
+    }
+  
+    .aboutus-text-back {
+      font-size: 1.2em;
+    }
+
+    .AU-Section1-left {
+        padding: 5em; /* Add padding for smaller screens */
+      }
+    
+  
+    /* Ensure all images are responsive */
+    .AU-Section1-right img,
+    .AU-section2-left img,
+    .AU-section2-right img {
+      width: 100%;
+      height: auto;
+      object-fit: contain; /* Ensure images scale properly */
+    }
+  }
+  
+  /* For small mobile screens (480px and below) */
+  @media (max-width: 480px) {
+    .aboutus-text {
+      font-size: 2em;
+    }
+  
+    .aboutus-text-back {
+      font-size: 1em;
+      text-align: center; /* Center align for smaller screens */
+    }
+  
+    .AU-Section1-left {
+      padding: 5em; /* Add padding for smaller screens */
+    }
+  
+    .AU-Section1-right img {
+      object-fit: contain; /* Ensure image fits nicely */
+      width: 100%; /* Make image responsive */
+      height: auto;
+    }
+  
+    .AU-section2-left img,
+    .AU-section2-right img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .AU-S3-right{
+        justify-content: center !important;
+    }
+  }
+  
+  .aboutus-text, .aboutus-text-back {
+    color: black;
+    line-height: 1.5; /* Adjust line height for better readability */
+  }
+  
+  /* Responsive for .aboutus-text */
+  .aboutus-text {
+    font-size: clamp(2em, 5vw, 4em); /* Responsive font size */
+    text-align: start; /* Align text to the left */
+  }
+  
+  /* Responsive for .aboutus-text-back */
+  .aboutus-text-back {
+    font-size: clamp(1em, 2.5vw, 1.4em); /* Responsive font size */
+    text-align: start; /* Align text to the left */
+  }
+  .Aboutus-Section3 {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .AU-Section3-Third {
+    margin-top: 4em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  }
+  
+  .AU-S3-left {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+  }
+  
+  .AU-S3-left > button {
+    border-radius: 10px;
+    width: 30%;
+    margin-top: 1em;
+    background-color: #ffb933;
+    border: none;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
+  
+  .AU-S3-right {
+    display: flex;
+    width: 50%;
+    justify-content: end;
+    align-items: center;
+    justify-content: end;
+  }
+  
+  .AU-S3-right > img {
+    height: auto;  /* Ensure the image maintains its aspect ratio */
+    width: 100%;   /* Make the image responsive */
+    max-width: 30em; /* Maximum width for larger screens */
+  }
+  
+  .AU-Section3-First {
+    font-size: 4em;
+    font-weight: bold;
+    text-align: center; /* Ensure center alignment */
+  }
+  
+  .AU-Section3-second {
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+    font-size: 1.1em;
+    width: 900px;
+  }
+  
+  /* For screens smaller than 768px (tablets and below) */
+  @media (max-width: 768px) {
+    .AU-Section3-First {
+      font-size: clamp(2.5em, 6vw, 4em); /* Adjust font size for tablets */
+    }
+  
+    .AU-Section3-second {
+      width: 100%;
+      font-size: clamp(1em, 4vw, 1.2em); /* Adjust font size for tablets */
+      padding: 0 1em; /* Add padding for smaller screens */
+    }
+  
+    .AU-Section3-Third {
+      flex-direction: column; /* Stack the sections vertically */
+    }
+  
+    .AU-S3-left, .AU-S3-right {
+      width: 100%;  /* Full width for each section */
+      margin-bottom: 2em; /* Add space between sections */
+    }
+  
+    .AU-S3-right > img {
+      width: 100%;
+      max-width: 90%; /* Ensure the image does not exceed the width */
+      margin-top: 1em; /* Add top margin for better spacing */
+    }
+  
+    .AU-S3-left > button {
+      width: 50%; /* Adjust button size for smaller screens */
+    }
+  }
+  
+  /* For screens smaller than 480px (mobile devices) */
+  @media (max-width: 480px) {
+    .AU-Section3-First {
+      font-size: clamp(2em, 6vw, 3em); /* Reduce font size further for mobile */
+    }
+  
+    .AU-Section3-second {
+      font-size: clamp(0.9em, 4vw, 1.1em); /* Reduce font size */
+      padding: 0 1em; /* Add padding for better readability */
+    }
+  
+    .AU-S3-left > button {
+      width: 70%; /* Increase button width on mobile */
+    }
+  
+    .AU-S3-right > img {
+      width: 90%; /* Ensure image is properly sized for mobile */
+      max-width: 90%; /* Limit max width */
+    }
+  }
+  
+  /* Slide-in from left */
+  .slide-left {
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: all 0.6s ease-in-out;
+  }
+  
+  /* Slide-in from right */
+  .slide-right {
+    opacity: 0;
+    transform: translateX(20%);
+    transition: all 0.6s ease-in-out;
+  }
+  
+  /* Keyframe animation for sliding up */
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px); /* Start from below */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Move to original position */
+    }
+  }
+  
+  .AU-Section3-First {
+    opacity: 0;
+    animation-delay: 0.2s; /* Delay for staggered effect */
+  }
+  
+  .AU-Section3-second {
+    opacity: 0;
+    animation-delay: 0.4s;
+  }
+  
+  .AU-Section3-Third {
+    opacity: 0;
+    animation-delay: 0.6s;
+  }
+  
+  .AU-S3-left, .AU-S3-right {
+    opacity: 0;
+    animation: slideUp 1s ease-out forwards;
+  }
+  
+  .AU-S3-left {
+    animation-delay: 0.8s;
+  }
+  
+  .AU-S3-right {
+    animation-delay: 1s;
+  }
+  
+  .in-view-left {
+    animation: slideInLeft 1s ease-out forwards;
+  }
+  
+  .in-view-right {
+    animation: slideInRight 1s ease-out forwards;
+  }
+  
+  @keyframes slideInLeft {
+    from {
+        opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+
+  
