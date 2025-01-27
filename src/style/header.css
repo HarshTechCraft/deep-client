@@ -80,6 +80,10 @@
   transform: scale(1.1); /* Optional: Slight hover effect */
 }
 
+.nav-responsive-laptop{
+  display: block;
+}
+
 .profile-image {
   width: 100%;
   height: 100%;
@@ -91,8 +95,13 @@
 }
 
 .navbar-menu.show2 {
+  display: flex !important;
   flex-direction: column;
   margin: 0;
+}
+
+.nav-responsive-mobile{
+  display: none ;
 }
 
 .navbar-menu.show2 li {
@@ -151,11 +160,26 @@
   display: none;
 }
 
+.nav-responsive-mobile.show{
+  display: none !important;
+}
+
 @media (max-width: 880px) {
   .navbar-center {
     display: none;
   }
 
+  .nav-responsive-mobile.show2{
+    display: flex !important;
+  }
+
+  .nav-responsive-mobile.show{
+    display: flex !important;
+  }
+
+  .nav-responsive-laptop{
+    display: none;
+  }
   .gap-menu{
     gap: 1em;
   }
@@ -172,3 +196,18 @@
     display: flex;
   }
 }
+
+@media (max-width: 1200px) {
+  .navbar-menu{
+    gap: 2em !important;
+  }
+}
+@media (max-width: 970px) {
+  .navbar-menu{
+    gap: 1em !important;
+  }
+}
+
+
+
+

@@ -101,7 +101,11 @@ const AboutUs = () => {
           <div className="AU-Section1-left">
             <div>
               <h1 className="aboutus-text">About Us</h1>
-              <span className="aboutus-text-back">BACK TO HOME</span>
+              <span className="aboutus-text-back">
+                <a href="/" style={{ textDecoration: "none", color: "black" }}>
+                  BACK TO HOME
+                </a>
+              </span>
             </div>
           </div>
           <div className="AU-Section1-right">
@@ -110,15 +114,13 @@ const AboutUs = () => {
         </div>
         <div className="Aboutus-Section2 container mt-5 bg-white text-gray-900 py-12 px-6 md:px-24">
           {/* Heading Section */}
-          <div className="text-left md:text-left">
-            <h2 className="text-pink-500 uppercase text-sm tracking-wide">
-              About Us
-            </h2>
+          <div className="mt-5 text-left ">
+            <h1 className="">About Us</h1>
           </div>
 
           {/* Main Content Section */}
           <div className="flex justify-between">
-            <div className="AU-section2-left slide-left">
+            <div className="AU-section2-left slide-left mt-3">
               {/* Left Image */}
               <h1 className="text-3xl md:text-5xl font-bold mt-4">
                 The Most Creative Wedding Planner Around The India.

@@ -172,7 +172,66 @@ function Header() {
         {/* Hamburger Menu */}
 
         {/* Center Navigation Options */}
-        <div className={`navbar-center  ${menuOpen ? "show" : ""}`}>
+
+        <div className={`navbar-center nav-responsive-laptop `}>
+          <ul className={`navbar-menu gap-menu `}>
+            <li>
+              <a href="/venues">Venues</a>
+            </li>
+            <li>
+              <a href="/vendors">Vendors</a>
+            </li>
+            <li>
+              <a href="/photos">Photos</a>
+            </li>
+            <li>
+              <a href="/real-weddings">Real Weddings</a>
+            </li>
+            <li>
+              <a href="/blog">Blog</a>
+            </li>
+            <li>
+              <a href="/shop">Shop</a>
+            </li>
+            <li>
+              <a href="/aboutus">About Us</a>
+            </li>
+            {/* {isLoggedIn ? (
+              <li>
+                <a href="/admin">Admin</a>
+              </li>
+            ) : (
+              ""
+            )} */}
+            {isLoggedIn ? (
+              <>
+                <li>
+                  <a href="/admin">Admin</a>
+                </li>
+                <li>
+                  <span className="ms-3 auth-responsive" onClick={logout}>
+                    Logout
+                  </span>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="auth-responsive">
+                  <a href="/signin">Sign In</a>
+                </li>
+                <li className="auth-responsive">
+                  <a href="/signup">Sign Up</a>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+
+        <div
+          className={`navbar-center nav-responsive-mobile  ${
+            menuOpen ? "show" : ""
+          }`}
+        >
           <ul className={`navbar-menu gap-menu ${menuOpen ? "show2" : ""}`}>
             <li>
               <a href="/venues">Venues</a>
@@ -195,12 +254,34 @@ function Header() {
             <li>
               <a href="/aboutus">About Us</a>
             </li>
-            <li className="auth-responsive">
-              <a href="/signin">Sign In</a>
-            </li>
-            <li className="auth-responsive">
-              <a href="/signup">Sign Up</a>
-            </li>
+            {/* {isLoggedIn ? (
+              <li>
+                <a href="/admin">Admin</a>
+              </li>
+            ) : (
+              ""
+            )} */}
+            {isLoggedIn ? (
+              <>
+                <li>
+                  <a href="/admin">Admin</a>
+                </li>
+                <li>
+                  <span className="ms-3 auth-responsive" onClick={logout}>
+                    Logout
+                  </span>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="auth-responsive">
+                  <a href="/signin">Sign In</a>
+                </li>
+                <li className="auth-responsive">
+                  <a href="/signup">Sign Up</a>
+                </li>
+              </>
+            )}
           </ul>
         </div>
 
@@ -210,7 +291,7 @@ function Header() {
           <ul className="navbar-menu">
             {isLoggedIn ? (
               <>
-                <li>
+                {/* <li>
                   <a href="#" onClick={logout} className="profile-icon">
                     <img
                       src={profile}
@@ -218,6 +299,11 @@ function Header() {
                       className="profile-image"
                     />
                   </a>
+                </li> */}
+                <li>
+                  <span className="ms-3" onClick={logout}>
+                    Logout
+                  </span>
                 </li>
               </>
             ) : (
