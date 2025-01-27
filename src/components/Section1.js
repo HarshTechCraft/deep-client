@@ -30,7 +30,7 @@ function Section1() {
   }, []);
 
   return (
-    <div className={`section1-container ${isVisible ? "animate" : ""}`}>
+    <div className={`section1-container gap-5 ${isVisible ? "animate" : ""}`}>
       <div className={`section1-images ${isVisible ? "animate" : ""}`}>
         <img
           src={image1}
@@ -51,10 +51,10 @@ function Section1() {
         />
       </div>
       <div className={`section1-text ${isVisible ? "animate" : ""}`}>
-        <p className="section1-subtitle">Announcing the 2024</p>
-        <h1 className="section1-title">OPEN DOOR AWARDS</h1>
+        <p className="section1-subtitle">Your Dream Wedding Starts Here</p>
+        <h3 className="section1-title">Perfect Weddings, Perfect Moments</h3>
         <a href="/" className="section1-link">
-          Discover the best in space rentals →
+          Discover Our Wedding Packages →
         </a>
       </div>
     </div>

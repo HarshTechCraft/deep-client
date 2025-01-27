@@ -1,75 +1,114 @@
 .grid-container {
-    max-width: 800px; /* Limit the overall width of the grid */
-    max-height: 600px; /* Limit the overall height of the grid */
-    margin: 0 auto; /* Center the grid horizontally on the page */
-  }
-  
-  .image-grid {
-    display: grid;
-    grid-template-columns: repeat(6, auto); /* Adjust columns based on content size */
-    grid-auto-rows: auto; /* Adjust rows based on content size */
-    gap: 10px; /* Space between grid items */
-    padding: 20px;
-  }
-  
-  .image {
-    display: flex; /* Enables Flexbox */
-    justify-content: center; /* Horizontally centers the image */
-    background-color: #f0f0f0; /* Optional: light background color for empty space */
-    border-radius: 8px;
-    overflow: hidden; /* Ensures images don't spill out of their boxes */
-    opacity: 0;
+  max-width: 800px; /* Limit the overall width of the grid */
+  max-height: 600px; /* Limit the overall height of the grid */
+  margin: 0 auto; /* Center the grid horizontally on the page */
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(6, auto); /* Adjust columns based on content size */
+  grid-auto-rows: auto; /* Adjust rows based on content size */
+  gap: 10px; /* Space between grid items */
+  padding: 20px;
+}
+
+.image {
+  position: relative; /* Required for overlay positioning */
+  display: flex; /* Enables Flexbox */
+  justify-content: center; /* Horizontally centers the image */
+  border-radius: 8px;
+  overflow: hidden; /* Ensures images don't spill out of their boxes */
+  opacity: 0;
   transform: translateX(-50%);
   transition: opacity 0.5s ease, transform 1s ease-in-out;
-  }
+}
 
-  .image.show {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  
-  .image img {
-    max-width: 100%; /* Ensures the image scales properly */
-    max-height: 100%; /* Ensures the image fits within the grid box */
-    object-fit: cover; /* Maintains the aspect ratio of the image */
-    border-radius: 8px;
-  }
-  
-  /* Custom sizes for larger images */
-  .image-1 {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
 
-  .image-2{
-    grid-row: span 1;
-    transition-delay: 0.2s;
-  }
-  .image-3{
-    grid-column: span 1;
-    height: 100%;
-    gap: 0.6em;
-    flex-direction: column;
-    grid-row: span 1;
-    transition-delay: 0.4s;
-  }
-  
-  .image-4 {
-    grid-column: span 2;
-    grid-row: span 1;
-    transition-delay: 0.6s;
-  }
-  .image-5{
-    grid-column: span 3;
-    grid-row: span 1;
-    transition-delay: 0.7s;
-  }
-  .image-{
-    grid-column: span 1;
-  }
-  
-  .image-8 {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-  
+.image.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.image img {
+  max-width: 100%; /* Ensures the image scales properly */
+  max-height: 100%; /* Ensures the image fits within the grid box */
+  object-fit: cover; /* Maintains the aspect ratio of the image */
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out; /* Add hover animation */
+}
+
+.image:hover img {
+  transform: scale(1.1); /* Zoom in the image on hover */
+}
+
+/* Overlay styles */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* White overlay with transparency */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image:hover .overlay {
+  opacity: 1;
+}
+
+/* Text styles for the overlay */
+.text {
+  position: absolute;
+  top: 23%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ffb933;
+  text-align: center;
+  opacity: 0;
+  font-family: 'Great Vibes', cursive;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image:hover .text {
+  opacity: 1;
+}
+
+/* Custom sizes for larger images */
+.image-1 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.image-2 {
+  grid-row: span 1;
+  transition-delay: 0.2s;
+}
+
+.image-3 {
+  grid-column: span 1;
+  height: 100%;
+  gap: 0.6em;
+  flex-direction: column;
+  grid-row: span 1;
+  transition-delay: 0.4s;
+}
+
+.image-4 {
+  grid-column: span 2;
+  grid-row: span 1;
+  transition-delay: 0.6s;
+}
+
+.image-5 {
+  grid-column: span 3;
+  grid-row: span 1;
+  transition-delay: 0.7s;
+}
+
+.image-8 {
+  grid-column: span 2;
+  grid-row: span 1;
+}
