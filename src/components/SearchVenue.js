@@ -183,7 +183,7 @@ const SearchVenue = () => {
               placeHolder="Enter Place"
             />
           </div>
-          <div className="input-group z-1 w-0">
+          <div className="input-group zindex-minus  w-0">
             <button type="submit" className="search-button">
               Search ➔
             </button>

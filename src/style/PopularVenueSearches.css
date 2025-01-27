@@ -3,6 +3,7 @@
   text-align: center;
   position: relative;
   margin-top: 14em;
+  z-index: -1;
 }
 
 .popular-venue-searches h2 {
