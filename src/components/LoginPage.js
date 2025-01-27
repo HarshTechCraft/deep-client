@@ -45,13 +45,13 @@ const LoginPage = () => {
           expires: 1,
         });
         // alert("Sign in successful!");
-        toast.success("Login Successful", {
-          position: "top-center",
-          autoClose: 2000,
-        });
         setTimeout(() => {
           navigate("/");
-        }, 2000);
+        }, 1000);
+        toast.success("Login Successful", {
+          position: "top-center",
+          autoClose: 1000,
+        });
       } else {
         setError("Invalid credentials. Please try again.");
       }
@@ -115,7 +115,7 @@ const LoginPage = () => {
               </a>
             </div>
             <button type="submit" className="login-button" disabled={loader}>
-              Sign In
+              {loader ? "Signing In..." : "Sign In"}
             </button>
           </form>
           <div className="redirect-to-signup">
