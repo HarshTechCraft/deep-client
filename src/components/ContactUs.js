@@ -31,6 +31,23 @@ function ContactUs() {
       <Header />
       <div className="container contactus-container">
         <div className="section-1">
+          <div className="section-1-left">
+            <h1>Contact Us</h1>
+            <p className="CU-details" style={{ marginTop: "5em" }}>
+              Call : **********
+            </p>
+            <p className="CU-details">Email : *******@gmail.com</p>
+            <p className="CU-details2">
+              We can’t wait to start planning your dream wedding with you!
+              Please fill out our contact form below and we will be in touch
+              very soon.
+            </p>
+          </div>
+          <div className="section-1-right ms-2">
+            <img src={img1} />
+          </div>
+        </div>
+        <div className="section-2">
           <div className="section-2-center">
             <div className="contact-container">
               <div className="contact-form-section">
@@ -83,17 +100,16 @@ function ContactUs() {
               <div className="contact-info-section">
                 <h2 className="contact-heading">Contact us</h2>
                 <p>
-                  <strong>📍 Address:</strong> 198 West 21th Street, Suite 721,
-                  New York NY 10016
+                  <strong>📍 Address:</strong> ***********
                 </p>
                 <p>
-                  <strong>📞 Phone:</strong> +1235 2355 98
+                  <strong>📞 Phone:</strong> +91 9925473547
                 </p>
                 <p>
-                  <strong>📧 Email:</strong> info@yoursite.com
+                  <strong>📧 Email:</strong> team@sukhsangam.in
                 </p>
                 <p>
-                  <strong>🌍 Website:</strong> yoursite.com
+                  <strong>🌍 Website:</strong> sukhsangam.in
                 </p>
               </div>
             </div>

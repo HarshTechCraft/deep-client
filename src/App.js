@@ -9,6 +9,7 @@ import LoginPage from "./components/LoginPage";
 import SignUpPage from "./components/SignUpPage";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
+import Photos from "./components/Photos";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/photos" element={<Photos />} />
       </Routes>
     </div>
   );

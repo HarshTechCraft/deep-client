@@ -101,7 +101,7 @@ const Footer = () => {
         </section>
 
         {/* Content Section */}
-        <section className="w-100" style={{ backgroundColor: "#fff5f7" }}>
+        <section className="w-100">
           <MDBContainer className="text-center text-md-start mt-5 footer-section">
             <MDBRow className="mt-3">
               {/* Company Info */}
