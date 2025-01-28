@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import "../style/Admin.css";
 import Header from "./Header";
 import { toast, ToastContainer } from "react-toastify";
+import Cookies from "js-cookie";
+import { Link } from "react-router-dom";
 
 function Admin() {
   const [formData, setFormData] = useState({
@@ -21,6 +23,9 @@ function Admin() {
     image: null,
     code: "",
   });
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const url =
     process.env.NODE_ENV === "production"
@@ -50,6 +55,12 @@ function Admin() {
 
     // Reset the file input field after successful form submission
     // e.target.value = null;
+  };
+
+  const logout = () => {
+    Cookies.remove("authToken");
+    setIsLoggedIn(false);
+    toast.success("Logged out successfully!");
   };
 
   // Function to validate form fields
@@ -126,12 +137,124 @@ function Admin() {
   };
   return (
     <>
-      <nav
-        className={`navbar `}
-        style={{ zIndex: "-1", backgroundColor: "black" }}
-      >
+      <nav className={`navbar `}>
+        {/* Logo */}
         <div className="navbar-logo">
           <a href="/">Sukhsangam</a>
+        </div>
+
+        {/* Hamburger Menu */}
+
+        {/* Center Navigation Options */}
+
+        <div className={`navbar-center nav-responsive-laptop `}>
+          <ul className={`navbar-menu gap-menu `}>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/venues">Event Management</a>
+            </li>
+            <li>
+              <a href="/vendors">Venue Management</a>
+            </li>
+
+            <li>
+              <a href="/real-weddings">Booking Management</a>
+            </li>
+
+            <li>
+              <a href="/shop">Package Management</a>
+            </li>
+            <li>
+              <a href="/aboutus">Reports</a>
+            </li>
+            <li>
+              <a href="/photos">Users</a>
+            </li>
+
+            <li>
+              <span className="ms-3 auth-responsive" onClick={logout}>
+                Logout
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div
+          className={`navbar-center nav-responsive-mobile  ${
+            menuOpen ? "show" : ""
+          }`}
+        >
+          <ul className={`navbar-menu gap-menu ${menuOpen ? "show2" : ""}`}>
+            <li>
+              <a href="/venues">Event Management</a>
+            </li>
+            <li>
+              <a href="/vendors">Venue Management</a>
+            </li>
+            <li>
+              <a href="/photos">User Management</a>
+            </li>
+            <li>
+              <a href="/real-weddings">Booking Management</a>
+            </li>
+            <li>
+              <a href="/blog">Vendor Management</a>
+            </li>
+            <li>
+              <a href="/shop">Package Management</a>
+            </li>
+            <li>
+              <a href="/aboutus">Reports</a>
+            </li>
+            {/* {isLoggedIn ? (
+                    <li>
+                      <a href="/admin">Admin</a>
+                    </li>
+                  ) : (
+                    ""
+                  )} */}
+            <>
+              <li>
+                <a href="/admin">Admin</a>
+              </li>
+              <li>
+                <span className="ms-3 auth-responsive" onClick={logout}>
+                  Logout
+                </span>
+              </li>
+            </>
+          </ul>
+        </div>
+
+        {/* Auth Buttons */}
+
+        <div className="navbar-end">
+          <ul className="navbar-menu">
+            {/* <li>
+                        <a href="#" onClick={logout} className="profile-icon">
+                          <img
+                            src={profile}
+                            alt="User Profile"
+                            className="profile-image"
+                          />
+                        </a>
+                      </li> */}
+            <li>
+              <span className="ms-3" onClick={logout}>
+                Logout
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div
+          className={`hamburger ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </nav>
       <div className="admin-container " style={{ marginTop: "6em" }}>

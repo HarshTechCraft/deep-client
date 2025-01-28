@@ -182,7 +182,7 @@ const Footer = () => {
                 </h6>
                 <p>
                   <a
-                    href="#!"
+                    href="/"
                     className="text-reset"
                     style={{ fontSize: "14px", color: "black" }}
                   >
@@ -191,7 +191,7 @@ const Footer = () => {
                 </p>
                 <p>
                   <a
-                    href="#!"
+                    href="aboutus"
                     className="text-reset"
                     style={{ fontSize: "14px", color: "black" }}
                   >
@@ -209,7 +209,7 @@ const Footer = () => {
                 </p>
                 <p>
                   <a
-                    href="#!"
+                    href="contactUs"
                     className="text-reset"
                     style={{ fontSize: "14px", color: "black" }}
                   >

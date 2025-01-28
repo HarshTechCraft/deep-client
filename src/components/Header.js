@@ -191,7 +191,7 @@ function Header() {
               <a href="/blog">Blog</a>
             </li>
             <li>
-              <a href="/shop">Shop</a>
+              <a href="/contactus">Contact Us</a>
             </li>
             <li>
               <a href="/aboutus">About Us</a>

@@ -70,7 +70,7 @@
   color: white;
   font-weight: bold;
   border: none;
-  border-radius: 0.25em;
+  border-radius: 0 0.5em 0.5em 0;
   cursor: pointer;
   animation: scaleIn 0.5s ease-out forwards;
 
