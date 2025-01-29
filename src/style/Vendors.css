@@ -1,0 +1,118 @@
+/* Main Container */
+.vendor-section {
+  width: 100%;
+  padding: 20px;
+  position: relative;
+}
+
+/* Section Title */
+.vendor-section h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  text-align: left;
+  padding-left: 0.1em;
+  padding-top: 0.3em;
+}
+
+/* Slider Container */
+.vendor-slider {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Hide scrollbar */
+.vendor-list::-webkit-scrollbar {
+  display: none; 
+}
+
+/* Scrollable List */
+.vendor-list {
+  display: flex;
+  overflow-x: auto;
+  width: 100%;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 7px 1px 12px 9px
+}
+
+/* Individual vendor Card */
+.vendor-card {
+  min-width: 230px;
+  border-radius: 9px;
+  margin-right: 20px;
+  text-align: start;
+  box-shadow: 0 0.125em 0.625em rgba(0, 0, 0, 0.2);
+  padding: 8px;
+}
+
+.vendor-card {
+  transition: transform 0.2s ease; /* Add smooth transition */
+}
+
+.vendor-card:hover {
+  transform: scale(1.03); /* Scale effect */
+}
+
+/* vendor Image */
+.vendor-image {
+  width: 100%;
+  height: 13em;
+  border-radius: 8px;
+}
+
+/* Price Tag */
+.vendor-price {
+  font-weight: bold;
+  color: #ff5722;
+}
+
+/* Votes Section */
+.vendor-votes {
+  margin-top: 10px;
+}
+
+.vote-tag {
+  display: inline-block;
+  background-color: #f3f3f3;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  margin: 2px;
+  color: #333;
+}
+
+/* Navigation Buttons */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  color: #333;
+}
+
+/* Left Button */
+.nav-button.left {
+  left: -20px;
+}
+
+/* Right Button */
+.nav-button.right {
+  right: -20px;
+}
+
+/* Hover Effect */
+.nav-button:hover {
+  background-color: #ffb933;
+  border: 2px solid #ffb933 !important;
+}

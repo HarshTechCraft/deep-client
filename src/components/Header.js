@@ -166,7 +166,7 @@ function Header() {
       <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
         {/* Logo */}
         <div className="navbar-logo">
-          <a href="/">Sukhsangam</a>
+          <Link to="/">Sukhsangam</Link>
         </div>
 
         {/* Hamburger Menu */}
@@ -176,37 +176,34 @@ function Header() {
         <div className={`navbar-center nav-responsive-laptop `}>
           <ul className={`navbar-menu gap-menu `}>
             <li>
-              <a href="/venues">Venues</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/vendors">Vendors</a>
+              <Link to="/venues">Venues</Link>
             </li>
             <li>
-              <a href="/photos">Photos</a>
+              <Link to="/vendors">Vendors</Link>
             </li>
             <li>
-              <a href="/real-weddings">Real Weddings</a>
+              <Link to="/photos">Photos</Link>
             </li>
             <li>
-              <a href="/blog">Blog</a>
+              <Link to="/real-weddings">Real Weddings</Link>
             </li>
             <li>
-              <a href="/contactus">Contact Us</a>
+              <Link to="/blog">Blog</Link>
             </li>
             <li>
-              <a href="/aboutus">About Us</a>
+              <Link to="/contactus">Contact Us</Link>
             </li>
-            {/* {isLoggedIn ? (
-              <li>
-                <a href="/admin">Admin</a>
-              </li>
-            ) : (
-              ""
-            )} */}
+            <li>
+              <Link to="/aboutus">About Us</Link>
+            </li>
+
             {isLoggedIn ? (
               <>
                 <li>
-                  <a href="/admin">Admin</a>
+                  <Link to="/admin">Admin</Link>
                 </li>
                 <li>
                   <span className="ms-3 auth-responsive" onClick={logout}>
@@ -217,10 +214,10 @@ function Header() {
             ) : (
               <>
                 <li className="auth-responsive">
-                  <a href="/signin">Sign In</a>
+                  <Link to="/signin">Sign In</Link>
                 </li>
                 <li className="auth-responsive">
-                  <a href="/signup">Sign Up</a>
+                  <Link to="/signup">Sign Up</Link>
                 </li>
               </>
             )}
@@ -234,29 +231,32 @@ function Header() {
         >
           <ul className={`navbar-menu gap-menu ${menuOpen ? "show2" : ""}`}>
             <li>
-              <a href="/venues">Venues</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/vendors">Vendors</a>
+              <Link to="/venues">Venues</Link>
             </li>
             <li>
-              <a href="/photos">Photos</a>
+              <Link to="/vendors">Vendors</Link>
             </li>
             <li>
-              <a href="/real-weddings">Real Weddings</a>
+              <Link to="/photos">Photos</Link>
             </li>
             <li>
-              <a href="/blog">Blog</a>
+              <Link to="/real-weddings">Real Weddings</Link>
             </li>
             <li>
-              <a href="/shop">Shop</a>
+              <Link to="/blog">Blog</Link>
             </li>
             <li>
-              <a href="/aboutus">About Us</a>
+              <Link to="/shop">Shop</Link>
+            </li>
+            <li>
+              <Link to="/aboutus">About Us</Link>
             </li>
             {/* {isLoggedIn ? (
               <li>
-                <a href="/admin">Admin</a>
+                <Link to="/admin">Admin</Link>
               </li>
             ) : (
               ""
@@ -264,7 +264,7 @@ function Header() {
             {isLoggedIn ? (
               <>
                 <li>
-                  <a href="/admin">Admin</a>
+                  <Link to="/admin">Admin</Link>
                 </li>
                 <li>
                   <span className="ms-3 auth-responsive" onClick={logout}>
@@ -275,10 +275,10 @@ function Header() {
             ) : (
               <>
                 <li className="auth-responsive">
-                  <a href="/signin">Sign In</a>
+                  <Link to="/signin">Sign In</Link>
                 </li>
                 <li className="auth-responsive">
-                  <a href="/signup">Sign Up</a>
+                  <Link to="/signup">Sign Up</Link>
                 </li>
               </>
             )}
@@ -292,13 +292,13 @@ function Header() {
             {isLoggedIn ? (
               <>
                 {/* <li>
-                  <a href="#" onClick={logout} className="profile-icon">
+                  <Link to="#" onClick={logout} className="profile-icon">
                     <img
                       src={profile}
                       alt="User Profile"
                       className="profile-image"
                     />
-                  </a>
+                  </Link>
                 </li> */}
                 <li>
                   <span className="ms-3" onClick={logout}>

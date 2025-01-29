@@ -21,7 +21,8 @@ const photosData = [
     location: "Real Wedding, Jaipur",
     description:
       "Classic bridal portrait with the bride in a light pink and red lehenga...",
-    image: img1,
+    image:
+      "https://i.pinimg.com/236x/a9/bd/1a/a9bd1a998f826cc85c7662980ee68b4d.jpg",
   },
   {
     id: 2,
