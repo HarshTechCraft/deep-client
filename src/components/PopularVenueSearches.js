@@ -137,7 +137,9 @@ const PopularVenueSearches = () => {
 
   return (
     <div className="popular-venue-searches container">
-      <h2>Popular Venue Searches</h2>
+      <h2 style={{ position: "relative", zIndex: "-1" }}>
+        Popular Venue Searches
+      </h2>
       <div className="venue-container">
         {/* Conditionally render the left arrow button */}
         {showLeftArrow && (

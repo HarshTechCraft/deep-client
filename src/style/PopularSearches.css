@@ -28,7 +28,6 @@
   overflow-y: hidden;
   scroll-behavior: smooth;
   padding: 0 0 8px 4px;
-  z-index: -1;
 }
 
 .search-card {

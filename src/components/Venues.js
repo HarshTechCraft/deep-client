@@ -10,6 +10,7 @@ import img7 from "../images/venues7.jpeg";
 import img8 from "../images/venues8.jpeg";
 import img9 from "../images/venues9.jpeg";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const Venues = () => {
   const venueData = [
@@ -220,6 +221,7 @@ const Venues = () => {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

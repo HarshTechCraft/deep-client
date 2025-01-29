@@ -8,6 +8,7 @@ import img5 from "../images/Photographer5.jpeg";
 import img6 from "../images/Photographer6.jpeg";
 import img7 from "../images/Photographer7.jpeg";
 import Header from "./Header";
+import Footer from "./Footer";
 
 function Vendors() {
   const scrollRef = useRef(null);
@@ -713,6 +714,7 @@ function Vendors() {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }

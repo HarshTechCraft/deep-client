@@ -13,6 +13,7 @@ import img10 from "../images/photo10.jpeg";
 import img11 from "../images/photo11.jpeg";
 import img12 from "../images/photo12.jpeg";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const photosData = [
   {
@@ -120,6 +121,7 @@ const Photos = () => {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

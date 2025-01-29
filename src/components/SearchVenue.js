@@ -175,7 +175,7 @@ const SearchVenue = () => {
               placeHolder="Enter activity"
             />
           </div>
-          <div className="input-group right-side">
+          <div className="input-group zindex_-1 right-side">
             <AutoSuggestion
               inputValue={locationValue}
               setInputValue={setLocationValue}

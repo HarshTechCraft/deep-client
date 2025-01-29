@@ -22,7 +22,6 @@
   display: flex;
   overflow-x: auto;
   gap: 20px;
-  z-index: -1;
   padding: 10px 10px;
   overflow-y: hidden;
   scroll-behavior: smooth;

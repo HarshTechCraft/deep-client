@@ -14,11 +14,11 @@ const PopularSearches = () => {
 
   // Scroll functions for left and right arrows
   const scrollLeft = () => {
-    scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
   };
 
   const scrollRight = () => {
-    scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    scrollRef.current.scrollBy({ left: -200, behavior: "smooth" });
   };
 
   // Check scroll position to toggle left arrow visibility
@@ -101,7 +101,7 @@ const PopularSearches = () => {
     const options = {
       root: null, // Default viewport
       rootMargin: "0px",
-      threshold: 0.5, // Trigger when 50% of the element is visible
+      threshold: 0.2, // Trigger when 50% of the element is visible
     };
 
     const handleIntersection = (entries, observer) => {
@@ -125,11 +125,11 @@ const PopularSearches = () => {
 
   return (
     <div className="popular-searches container">
-      <h2>Popular Searches</h2>
+      <h2 style={{ position: "relative", zIndex: "-1" }}>Popular Searches</h2>
       <div className="search-container2">
         {/* Conditionally render the left arrow button */}
         {showLeftArrow && (
-          <button className="scroll-button left" onClick={scrollRight}>
+          <button className="scroll-button left z-1" onClick={scrollRight}>
             &#8249;
           </button>
         )}

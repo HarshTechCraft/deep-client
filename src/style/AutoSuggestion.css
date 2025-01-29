@@ -12,17 +12,19 @@ input {
 
 .suggestions-list {
   position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: white;
-  border: 0.0625em solid #ccc;
-  border-radius: 0.25em;
-  z-index: 1000;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: start !important;
+    top: 100%;
+    overflow-y: auto;
+    max-height: 230px;
+    left: 0;
+    width: 100%;
+    border-bottom: 2px solid black;
+    background-color: white;
+    border-radius: 0 0 0.25em 0.25em;
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: start !important;
 }
 
 .suggestions-list li {
@@ -32,4 +34,11 @@ input {
 
 .suggestions-list li:hover {
   background-color: #f0f0f0;
+}
+
+
+@media (max-width:900px) {
+.suggestions-list {
+  max-height: 180px;
+}
 }

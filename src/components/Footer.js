@@ -20,7 +20,7 @@ const Footer = () => {
             footerElements.forEach((element, index) => {
               setTimeout(() => {
                 element.classList.add("fadeIn");
-              }, index * 500); // Staggered animation effect
+              }, index * 100); // Staggered animation effect
             });
           } else {
             footerElements.forEach((element) => {
@@ -29,7 +29,7 @@ const Footer = () => {
           }
         });
       },
-      { threshold: 0.5 } // Trigger when 50% of the footer is in view
+      { threshold: 1.0 } // Trigger when 100% of the footer is in view
     );
 
     const footerSection = document.querySelector(".footer-section-wrapper");

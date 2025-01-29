@@ -187,9 +187,7 @@ function Header() {
             <li>
               <Link to="/photos">Photos</Link>
             </li>
-            <li>
-              <Link to="/real-weddings">Real Weddings</Link>
-            </li>
+
             <li>
               <Link to="/blog">Blog</Link>
             </li>
@@ -243,14 +241,9 @@ function Header() {
               <Link to="/photos">Photos</Link>
             </li>
             <li>
-              <Link to="/real-weddings">Real Weddings</Link>
-            </li>
-            <li>
               <Link to="/blog">Blog</Link>
             </li>
-            <li>
-              <Link to="/shop">Shop</Link>
-            </li>
+
             <li>
               <Link to="/aboutus">About Us</Link>
             </li>
