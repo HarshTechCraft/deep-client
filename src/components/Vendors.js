@@ -44,6 +44,10 @@ function Vendors() {
     };
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top when the page is loaded
+  }, []);
+
   const photographer = [
     {
       id: 1,

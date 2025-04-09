@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import img1 from "../images/contactus.jpeg";
 import "../style/ContactUs.css";
 import Header from "./Header";
@@ -13,6 +13,9 @@ function ContactUs() {
     message: "",
     consent: false,
   });
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top when the page is loaded
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;

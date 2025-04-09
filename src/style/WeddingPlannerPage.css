@@ -1,0 +1,162 @@
+/* WeddingPlannerPage.css */
+
+.container {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f5d5b5; /* Light peach background */
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-icon {
+    width: 40px; /* Adjust based on your logo's dimensions */
+    height: 40px; /* Adjust based on your logo's dimensions */
+    background-color: #d32f2f; /* Red background */
+    padding: 5px; /* Padding around the image */
+    border-radius: 5px;
+    margin-right: 5px;
+    object-fit: contain; /* Ensure the logo scales properly */
+  }
+  
+  .logo-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #d32f2f; /* Red text */
+  }
+  
+  .nav {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-link {
+    text-decoration: none !important;
+    color: black !important;
+    background-color: #DC7D27 !important;/* Orange background for nav links */
+    padding: 8px 25px !important;
+    border-radius: 5px !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+  }
+  
+  .floral-border {
+    width: 100%;
+    height: 30px;
+    background: repeating-linear-gradient(
+      90deg,
+      #d32f2f 0px,
+      #d32f2f 10px,
+      transparent 10px,
+      transparent 20px
+    ); /* Placeholder for floral pattern */
+    border-top: 2px solid #d32f2f;
+    border-bottom: 2px solid #d32f2f;
+  }
+  
+  .main-section {
+    width: 100%;
+    height: 670px;
+    position: relative;
+    background-image: url('../images/WeddingPageBg1.png'); /* Replace with actual image URL */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .main-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    backdrop-filter: blur(2px);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.7)
+    );
+    z-index: 1;
+  }
+  
+  .main-section > * {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .swirl-design {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .text-overlay {
+    text-align: center;
+    color: #fff;
+  }
+  
+  .main-text {
+    font-size: 48px;
+    font-weight: 400;
+    font-family: cursive;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for better readability */
+  }
+  
+  .highlight-text {
+    font-weight: bold;
+  }
+  
+  .learn-more-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #f57c00; /* Orange background */
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  .button-icon {
+    font-size: 18px;
+  }
+  
+  .button-arrow {
+    font-size: 18px;
+  }
+  
+  @media (max-width: 768px) {
+    .main-text {
+      font-size: 32px;
+    }
+    .nav {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }

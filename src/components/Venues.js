@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../style/Venues.css";
 import img1 from "../images/venues1.jpeg";
 import img2 from "../images/venues2.jpeg";
@@ -195,6 +195,9 @@ const Venues = () => {
       image: img9,
     },
   ];
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top when the page is loaded
+  }, []);
 
   return (
     <div className="Venues mt-5">

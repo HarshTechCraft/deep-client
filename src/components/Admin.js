@@ -5,6 +5,12 @@ import Header from "./Header";
 import { toast, ToastContainer } from "react-toastify";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
+import AdminEvents from "./AdminEvents";
+import AdminVenues from "./AdminVenues";
+import AdminBooking from "./AdminBooking";
+import AdminPackage from "./AdminPackage";
+import AdminUsers from "./AdminUsers";
+import AdminReports from "./AdminReports";
 
 function Admin() {
   const [formData, setFormData] = useState({
@@ -23,6 +29,8 @@ function Admin() {
     image: null,
     code: "",
   });
+
+  const [location, setLocation] = useState("home");
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -135,6 +143,9 @@ function Admin() {
       facilities: facilitiesArray,
     }));
   };
+
+  const handleLocation = (e) => {};
+
   return (
     <>
       <nav className={`navbar `}>
@@ -150,27 +161,69 @@ function Admin() {
         <div className={`navbar-center nav-responsive-laptop `}>
           <ul className={`navbar-menu gap-menu `}>
             <li>
-              <a href="/">Home</a>
+              <span
+                onClick={(e) => {
+                  setLocation("home");
+                }}
+              >
+                Home
+              </span>
             </li>
             <li>
-              <a href="/venues">Event Management</a>
+              <span
+                onClick={(e) => {
+                  setLocation("events");
+                }}
+              >
+                Event Management
+              </span>
             </li>
             <li>
-              <a href="/vendors">Venue Management</a>
+              <span
+                onClick={(e) => {
+                  setLocation("venues");
+                }}
+              >
+                Venue Management
+              </span>
             </li>
 
             <li>
-              <a href="/real-weddings">Booking Management</a>
+              <span
+                onClick={(e) => {
+                  setLocation("booking");
+                }}
+              >
+                Booking Management
+              </span>
             </li>
 
             <li>
-              <a href="/shop">Package Management</a>
+              <span
+                onClick={(e) => {
+                  setLocation("package");
+                }}
+              >
+                Package Management
+              </span>
             </li>
             <li>
-              <a href="/aboutus">Reports</a>
+              <span
+                onClick={(e) => {
+                  setLocation("reports");
+                }}
+              >
+                Reports
+              </span>
             </li>
             <li>
-              <a href="/photos">Users</a>
+              <span
+                onClick={(e) => {
+                  setLocation("users");
+                }}
+              >
+                Users
+              </span>
             </li>
 
             <li>
@@ -257,194 +310,204 @@ function Admin() {
           <span></span>
         </div>
       </nav>
-      <div className="admin-container " style={{ marginTop: "6em" }}>
-        <ToastContainer />
+      {location == "home" ? (
+        <div className="admin-container " style={{ marginTop: "6em" }}>
+          <ToastContainer />
 
-        <form className="admin-form " onSubmit={handleSubmit}>
-          {/* Row for Activity and Event Type */}
-          <div className="form-row">
-            <label>
-              Event Type:
-              <select
-                name="eventType"
-                value={formData.eventType}
-                onChange={handleChange}
-              >
-                <option value="">Select Event Type</option>
-                <option value="wedding">Wedding</option>
-                <option value="conference">Conference</option>
-                <option value="party">Party</option>
-                <option value="concert">Concert</option>
-                <option value="festival">Festival</option>
-                <option value="corporate_meeting">Corporate Meeting</option>
-                <option value="workshop">Workshop</option>
-                <option value="seminar">Seminar</option>
-                <option value="trade_show">Trade Show</option>
-                <option value="fundraiser">Fundraiser</option>
-                <option value="exhibition">Exhibition</option>
-                <option value="webinar">Webinar</option>
-                <option value="networking_event">Networking Event</option>
-                <option value="birthday_party">Birthday Party</option>
-                <option value="graduation">Graduation</option>
-                <option value="retirement_party">Retirement Party</option>
-                <option value="baby_shower">Baby Shower</option>
-                <option value="charity_event">Charity Event</option>
-                <option value="product_launch">Product Launch</option>
-                <option value="gala">Gala</option>
-                <option value="award_ceremony">Award Ceremony</option>
-                <option value="sports_event">Sports Event</option>
-                <option value="religious_ceremony">Religious Ceremony</option>
-                <option value="team_building">Team Building</option>
-                <option value="class_reunion">Class Reunion</option>
-              </select>
-            </label>
-            <label>
-              Activity:
+          <form className="admin-form " onSubmit={handleSubmit}>
+            {/* Row for Activity and Event Type */}
+            <div className="form-row">
+              <label>
+                Event Type:
+                <select
+                  name="eventType"
+                  value={formData.eventType}
+                  onChange={handleChange}
+                >
+                  <option value="">Select Event Type</option>
+                  <option value="wedding">Wedding</option>
+                  <option value="conference">Conference</option>
+                  <option value="party">Party</option>
+                  <option value="concert">Concert</option>
+                  <option value="festival">Festival</option>
+                  <option value="corporate_meeting">Corporate Meeting</option>
+                  <option value="workshop">Workshop</option>
+                  <option value="seminar">Seminar</option>
+                  <option value="trade_show">Trade Show</option>
+                  <option value="fundraiser">Fundraiser</option>
+                  <option value="exhibition">Exhibition</option>
+                  <option value="webinar">Webinar</option>
+                  <option value="networking_event">Networking Event</option>
+                  <option value="birthday_party">Birthday Party</option>
+                  <option value="graduation">Graduation</option>
+                  <option value="retirement_party">Retirement Party</option>
+                  <option value="baby_shower">Baby Shower</option>
+                  <option value="charity_event">Charity Event</option>
+                  <option value="product_launch">Product Launch</option>
+                  <option value="gala">Gala</option>
+                  <option value="award_ceremony">Award Ceremony</option>
+                  <option value="sports_event">Sports Event</option>
+                  <option value="religious_ceremony">Religious Ceremony</option>
+                  <option value="team_building">Team Building</option>
+                  <option value="class_reunion">Class Reunion</option>
+                </select>
+              </label>
+              <label>
+                Activity:
+                <input
+                  type="text"
+                  name="activity"
+                  value={formData.activity}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+
+            {/* Row for Location and Date */}
+            <div className="form-row">
+              <label>
+                Location:
+                <input
+                  type="text"
+                  name="location"
+                  value={formData.location}
+                  onChange={handleChange}
+                />
+              </label>
+              <label>
+                Date:
+                <input
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+
+            {/* Row for Hotel and Event Duration */}
+            <div className="form-row">
+              <label>
+                Hotel:
+                <input
+                  type="text"
+                  name="hotel"
+                  value={formData.hotel}
+                  onChange={handleChange}
+                />
+              </label>
+              <label>
+                Duration:
+                <input
+                  type="text"
+                  name="duration"
+                  placeholder="e.g., 6 PM - 11 PM"
+                  value={formData.duration}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+
+            {/* Row for Event Price and Guests */}
+            <div className="form-row">
+              <label>
+                Event Price/Budget(₹):
+                <input
+                  type="number"
+                  name="price"
+                  value={formData.price}
+                  onChange={handleChange}
+                />
+              </label>
+              <label>
+                Guests:
+                <input
+                  type="number"
+                  name="guests"
+                  value={formData.guests}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+
+            {/* Row for About Space */}
+            <div className="form-row">
+              <label className="full-width">
+                About Space:
+                <textarea
+                  name="aboutSpace"
+                  value={formData.aboutSpace}
+                  onChange={handleChange}
+                  placeholder="Describe the space..."
+                />
+              </label>
+            </div>
+
+            {/* Row for Organizer Details */}
+            <div className="form-row">
+              <label>
+                Organizer Name:
+                <input
+                  type="text"
+                  name="organizerName"
+                  value={formData.organizerName}
+                  onChange={handleChange}
+                />
+              </label>
+              <label>
+                Organizer Contact:
+                <input
+                  type="text"
+                  name="organizerContact"
+                  value={formData.organizerContact}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+
+            {/* Row for Image Upload */}
+            <div className="form-row">
+              <label>
+                Facilities (comma-separated) :
+                <input
+                  type="text"
+                  name="facilities"
+                  onChange={handleFacilitiesChange}
+                  placeholder=""
+                  value={formData.facilities}
+                />
+              </label>
+              <label>
+                Image:
+                <input type="file" name="image" onChange={handleImageUpload} />
+              </label>
+            </div>
+
+            {/* Row for Captcha and Submit */}
+            <div className="captcha-and-submit">
               <input
+                name="code"
                 type="text"
-                name="activity"
-                value={formData.activity}
+                placeholder="Enter code"
+                className="captcha-input"
+                value={formData.code}
                 onChange={handleChange}
               />
-            </label>
-          </div>
-
-          {/* Row for Location and Date */}
-          <div className="form-row">
-            <label>
-              Location:
-              <input
-                type="text"
-                name="location"
-                value={formData.location}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Date:
-              <input
-                type="date"
-                name="date"
-                value={formData.date}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-
-          {/* Row for Hotel and Event Duration */}
-          <div className="form-row">
-            <label>
-              Hotel:
-              <input
-                type="text"
-                name="hotel"
-                value={formData.hotel}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Duration:
-              <input
-                type="text"
-                name="duration"
-                placeholder="e.g., 6 PM - 11 PM"
-                value={formData.duration}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-
-          {/* Row for Event Price and Guests */}
-          <div className="form-row">
-            <label>
-              Event Price/Budget(₹):
-              <input
-                type="number"
-                name="price"
-                value={formData.price}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Guests:
-              <input
-                type="number"
-                name="guests"
-                value={formData.guests}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-
-          {/* Row for About Space */}
-          <div className="form-row">
-            <label className="full-width">
-              About Space:
-              <textarea
-                name="aboutSpace"
-                value={formData.aboutSpace}
-                onChange={handleChange}
-                placeholder="Describe the space..."
-              />
-            </label>
-          </div>
-
-          {/* Row for Organizer Details */}
-          <div className="form-row">
-            <label>
-              Organizer Name:
-              <input
-                type="text"
-                name="organizerName"
-                value={formData.organizerName}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Organizer Contact:
-              <input
-                type="text"
-                name="organizerContact"
-                value={formData.organizerContact}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-
-          {/* Row for Image Upload */}
-          <div className="form-row">
-            <label>
-              Facilities (comma-separated) :
-              <input
-                type="text"
-                name="facilities"
-                onChange={handleFacilitiesChange}
-                placeholder=""
-                value={formData.facilities}
-              />
-            </label>
-            <label>
-              Image:
-              <input type="file" name="image" onChange={handleImageUpload} />
-            </label>
-          </div>
-
-          {/* Row for Captcha and Submit */}
-          <div className="captcha-and-submit">
-            <input
-              name="code"
-              type="text"
-              placeholder="Enter code"
-              className="captcha-input"
-              value={formData.code}
-              onChange={handleChange}
-            />
-            <button type="submit" className="submit-button">
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
+              <button type="submit" className="submit-button">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      ) : (
+        ""
+      )}
+      {location == "events" ? <AdminEvents /> : ""}
+      {location == "venues" ? <AdminVenues /> : ""}
+      {location == "booking" ? <AdminBooking /> : ""}
+      {location == "package" ? <AdminPackage /> : ""}
+      {location == "reports" ? <AdminReports /> : ""}
+      {location == "users" ? <AdminUsers /> : ""}
     </>
   );
 }

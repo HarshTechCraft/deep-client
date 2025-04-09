@@ -7,6 +7,7 @@ import {
   MDBCol,
   MDBIcon,
 } from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   useEffect(() => {
@@ -62,41 +63,41 @@ const Footer = () => {
           </div>
 
           <div className="social-media-icons">
-            <a
-              href="https://www.facebook.com/Sukhsangam"
+            <Link
+              to="https://www.facebook.com/Sukhsangam"
               className="me-4 text-reset"
               style={{ color: "#4267B2" }}
             >
               <MDBIcon fab icon="facebook-f" />
-            </a>
-            <a
-              href="https://twitter.com/Sukhsangam"
+            </Link>
+            <Link
+              to="https://twitter.com/Sukhsangam"
               className="me-4 text-reset"
               style={{ color: "#1DA1F2" }}
             >
               <MDBIcon fab icon="twitter" />
-            </a>
-            <a
-              href="https://www.instagram.com/Sukhsangam"
+            </Link>
+            <Link
+              to="https://www.instagram.com/Sukhsangam"
               className="me-4 text-reset"
               style={{ color: "#E4405F" }}
             >
               <MDBIcon fab icon="instagram" />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/sukhsangam"
+            </Link>
+            <Link
+              to="https://www.linkedin.com/company/sukhsangam"
               className="me-4 text-reset"
               style={{ color: "#0077B5" }}
             >
               <MDBIcon fab icon="linkedin" />
-            </a>
-            <a
-              href="https://github.com/Sukhsangam"
+            </Link>
+            <Link
+              to="https://github.com/Sukhsangam"
               className="me-4 text-reset"
               style={{ color: "#333" }}
             >
               <MDBIcon fab icon="github" />
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -134,41 +135,42 @@ const Footer = () => {
                 >
                   Services
                 </h6>
+
                 <p>
-                  <a
-                    href="#!"
-                    className="text-reset"
-                    style={{ fontSize: "14px" }}
-                  >
-                    Wedding Planning
-                  </a>
-                </p>
-                <p>
-                  <a
-                    href="#!"
+                  <Link
+                    to="/venues"
                     className="text-reset"
                     style={{ fontSize: "14px" }}
                   >
                     Venue Selection
-                  </a>
+                  </Link>
                 </p>
                 <p>
-                  <a
-                    href="#!"
+                  <Link
+                    to="/vendors"
+                    className="text-reset"
+                    style={{ fontSize: "14px" }}
+                  >
+                    Vendor Selection
+                  </Link>
+                </p>
+                <p>
+                  <Link
+                    to="/vendors"
                     className="text-reset"
                     style={{ fontSize: "14px" }}
                   >
                     Catering
-                  </a>
+                  </Link>
                 </p>
                 <p>
-                  <a
-                    href="#!"
+                  <Link
+                    to="/photos"
                     className="text-reset"
                     style={{ fontSize: "14px" }}
                   >
                     Photography
-                  </a>
+                  </Link>
                 </p>
               </MDBCol>
 
@@ -181,40 +183,41 @@ const Footer = () => {
                   Useful Links
                 </h6>
                 <p>
-                  <a
-                    href="/"
+                  <Link
+                    to="/"
                     className="text-reset"
                     style={{ fontSize: "14px", color: "black" }}
                   >
                     Home
-                  </a>
+                  </Link>
                 </p>
                 <p>
-                  <a
-                    href="aboutus"
+                  <Link
+                    to="signin"
+                    className="text-reset"
+                    style={{ fontSize: "14px", color: "black" }}
+                  >
+                    Sign In
+                  </Link>
+                </p>
+                <p>
+                  <Link
+                    to="aboutus"
                     className="text-reset"
                     style={{ fontSize: "14px", color: "black" }}
                   >
                     About Us
-                  </a>
+                  </Link>
                 </p>
+
                 <p>
-                  <a
-                    href="#!"
-                    className="text-reset"
-                    style={{ fontSize: "14px", color: "black" }}
-                  >
-                    Testimonials
-                  </a>
-                </p>
-                <p>
-                  <a
-                    href="contactUs"
+                  <Link
+                    to="contactUs"
                     className="text-reset"
                     style={{ fontSize: "14px", color: "black" }}
                   >
                     Contact Us
-                  </a>
+                  </Link>
                 </p>
               </MDBCol>
 

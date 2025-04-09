@@ -12,12 +12,14 @@ import ContactUs from "./components/ContactUs";
 import Photos from "./components/Photos";
 import Venues from "./components/Venues";
 import Vendors from "./components/Vendors";
+import Blog from "./components/Blog";
+import WeddingPlannerPage from "./components/WeddingPlannerPage";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" exact element={<Home />} />
+        <Route path="/" exact element={<WeddingPlannerPage />} />
         <Route path="/events" element={<Events />} />
         <Route path="/events/event-info" element={<EventInfo />} />
         <Route path="/admin" element={<Admin />} />
@@ -28,6 +30,7 @@ function App() {
         <Route path="/photos" element={<Photos />} />
         <Route path="/venues" element={<Venues />} />
         <Route path="/vendors" element={<Vendors />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
     </div>
   );

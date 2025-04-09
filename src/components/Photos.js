@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../style/Photos.css";
 import img1 from "../images/photo.jpeg";
 import img2 from "../images/photo2.jpeg";
@@ -108,6 +108,10 @@ const photosData = [
 ];
 
 const Photos = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top when the page is loaded
+  }, []);
+
   return (
     <div>
       <Header />

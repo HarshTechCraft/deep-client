@@ -14,6 +14,10 @@ import AboutUsSection4 from "./AboutUsSection4";
 import Footer from "./Footer";
 
 const AboutUs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top when the page is loaded
+  }, []);
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const logout = () => {

@@ -1,0 +1,124 @@
+/* WeddingCounselingSection.css */
+
+.counseling-section {
+    width: 100%;
+    margin-top:3em;
+    height: 600px; /* Adjust height as needed */
+    position: relative;
+    background-image: url('../images/HomeSecondSectionBg.png'); /* Replace with actual image URL */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px; /* Add padding to space content from edges */
+  }
+  
+  /* Add black gradient overlay using ::before */
+  .counseling-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(4px);
+
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3), /* Lighter black at the top */
+      rgba(0, 0, 0, 0.7)  /* Darker black at the bottom */
+    );
+    z-index: 1;
+  }
+  
+  /* Ensure content inside counseling-section is above the overlay */
+  .counseling-section > * {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .counseling-content {
+    max-width: 50%;
+    color: #fff;
+  }
+  
+  .counseling-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for readability */
+  }
+  
+  .counseling-text {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .counseling-button {
+    padding: 10px 20px;
+    background-color: #f57c00; /* Orange background */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  .button-icon {
+    font-size: 18px;
+  }
+  
+  .circle-images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .circle-image {
+    width: 150px; /* Adjust size as needed */
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff; /* White border around images */
+  }
+  
+  @media (max-width: 768px) {
+    .counseling-section {
+      flex-direction: column;
+      padding: 20px;
+      height: auto;
+    }
+  
+    .counseling-content {
+      max-width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .counseling-title {
+      font-size: 28px;
+    }
+  
+    .counseling-text {
+      font-size: 16px;
+    }
+  
+    .circle-images {
+      flex-direction: row;
+      justify-content: center;
+      gap: 10px;
+    }
+  
+    .circle-image {
+      width: 100px;
+      height: 100px;
+    }
+  }
