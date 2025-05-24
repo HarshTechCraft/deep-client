@@ -7,39 +7,15 @@ import OurServiceSection from "./OurServiceSection"; // Import the third section
 import OurGallerySection from "./OurGallerySection"; // Import the fourth section
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
+import NewHeader from "./NewHeader";
 
 const WeddingPlannerPage = () => {
   return (
     <div className="">
       {/* First Section (Header and Main Section) */}
-      <header className="header">
-        <div className="logo">
-          <img src={logoImage} alt="Website Logo" className="logo-icon" />
-          <span className="logo-text">SUKHSANGAM</span>
-        </div>
-        <nav className="nav">
-          <Link to="#" className="nav-link">
-            HOME PAGE
-          </Link>
-          <Link to="venues" className="nav-link">
-            VENUE
-          </Link>
-          <Link to="vendors" className="nav-link">
-            VENDORS
-          </Link>
-          <Link to="aboutus" className="nav-link">
-            ABOUT US
-          </Link>
-          <Link to="blog" className="nav-link">
-            BLOG
-          </Link>
-          <Link to="contactus" className="nav-link">
-            CONTACT US
-          </Link>
-        </nav>
-      </header>
+      <NewHeader />
 
-      <section className="main-section">
+      <section className="main-section ">
         <div className="swirl-design"></div>
         <div className="text-overlay">
           <h1 className="main-text">

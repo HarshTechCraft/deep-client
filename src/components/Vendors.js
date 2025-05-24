@@ -9,6 +9,7 @@ import img6 from "../images/Photographer6.jpeg";
 import img7 from "../images/Photographer7.jpeg";
 import Header from "./Header";
 import Footer from "./Footer";
+import NewHeader from "./NewHeader";
 
 function Vendors() {
   const scrollRef = useRef(null);
@@ -671,7 +672,7 @@ function Vendors() {
 
   return (
     <div className="Vendors">
-      <Header />
+      <NewHeader />
 
       <div className="Vendor mt-5">
         {/* List of vendor categories */}

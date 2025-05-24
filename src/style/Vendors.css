@@ -30,7 +30,7 @@
 .vendor-list {
   display: flex;
   overflow-x: auto;
-  width: 100%;
+  width:81em;
   overflow-y: hidden;
   scroll-behavior: smooth;
   padding: 7px 1px 12px 9px

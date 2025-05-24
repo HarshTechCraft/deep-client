@@ -11,6 +11,8 @@ import img8 from "../images/venues8.jpeg";
 import img9 from "../images/venues9.jpeg";
 import Header from "./Header";
 import Footer from "./Footer";
+import NewHeader from "./NewHeader";
+// Replace with the actual path to your logo image
 
 const Venues = () => {
   const venueData = [
@@ -200,9 +202,10 @@ const Venues = () => {
   }, []);
 
   return (
-    <div className="Venues mt-5">
-      <div className="venue-listing-container">
-        <Header />
+    <div className="Venues">
+      <NewHeader />
+
+      <div className="venue-listing-container mt-4">
         {venueData.map((venue, index) => (
           <div key={index} className="venue-listing-card">
             <div className="venue-listing-image">
